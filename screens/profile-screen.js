@@ -15,7 +15,7 @@ const ProfileScreen = (props) => {
 
 ProfileScreen.navigationOptions = (navData) => {
   return {
-    headerTitle: "Home",
+    headerTitle: "Profile",
     headerLeft: (
       <HeaderButtons HeaderButtonComponent={HeaderButton}>
         <Item
