@@ -4,7 +4,9 @@
     "slug": "pussalla-app",
     "privacy": "public",
     "sdkVersion": "37.0.0",
-    "platforms": ["android"],
+    "platforms": [
+      "android"
+    ],
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/app_icon.png",
@@ -16,7 +18,9 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "android": {
       "package": "com.sliit.pussallaapp",
       "versionCode": 1

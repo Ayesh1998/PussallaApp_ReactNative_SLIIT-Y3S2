@@ -3,32 +3,33 @@ import {Text, View} from 'react-native'
 import {HeaderButtons, Item} from 'react-navigation-header-buttons'
 import HeaderButton from '../components/header-button'
 
-const HomeScreen = () => {
+const OrdersScreen = () => {
   return (
     <View>
       <Text style={{
         fontWeight: 'bold',
         color: 'rgb(114, 105, 105)'
       }}>
-        Home
+        My Orders
       </Text>
     </View>
   )
 }
 
-HomeScreen.navigationOptions = (navData) => {
+OrdersScreen.navigationOptions = (navData) => {
   return {
-    headerTitle: 'Home',
+    headerTitle: 'My Orders',
     headerLeft: (
       <HeaderButtons HeaderButtonComponent={HeaderButton}>
         <Item title='Menu'
               iconName='ios-menu'
               onPress={() => {
                 navData.navigation.toggleDrawer()
-              }}/>
+              }}
+        />
       </HeaderButtons>
     )
   }
 }
 
-export default HomeScreen
+export default OrdersScreen

@@ -1,46 +1,46 @@
-import React, { useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
-import * as Font from "expo-font";
-import { AppLoading } from "expo";
-import MealsNavigator from "./navigation/meals-navigator";
-import { createStore, combineReducers } from "redux";
-import { Provider } from "react-redux";
-import shopReducer from "./store/meals-reducer";
+import React, {useState} from 'react'
+import {StyleSheet} from 'react-native'
+import * as Font from 'expo-font'
+import {AppLoading} from 'expo'
+import MealsNavigator from './navigation/meals-navigator'
+import {combineReducers, createStore} from 'redux'
+import {Provider} from 'react-redux'
+import shopReducer from './store/meals-reducer'
 
 const getFonts = () => {
   Font.loadAsync({
-    "open-sans": require("./assets/fonts/OpenSans-Regular.ttf"),
-    "open-sans-bold": require("./assets/fonts/OpenSans-Bold.ttf"),
-  });
-};
+    'open-sans': require('./assets/fonts/OpenSans-Regular.ttf'),
+    'open-sans-bold': require('./assets/fonts/OpenSans-Bold.ttf')
+  }).then(() => {
+  })
+}
 
 const mainReducer = combineReducers({
-  shop: shopReducer,
-});
+  shop: shopReducer
+})
 
-const store = createStore(mainReducer);
+const store = createStore(mainReducer)
 
 export default function App() {
-  const [fontLoaded, setFontLoaded] = useState(false);
-
+  const [fontLoaded, setFontLoaded] = useState(false)
   if (!fontLoaded) {
     return (
-      <AppLoading startAsync={getFonts} onFinish={() => setFontLoaded(true)} />
-    );
+      <AppLoading startAsync={getFonts}
+                  onFinish={() => setFontLoaded(true)}/>
+    )
   }
-
   return (
     <Provider store={store}>
-      <MealsNavigator />
+      <MealsNavigator/>
     </Provider>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center'
+  }
+})
