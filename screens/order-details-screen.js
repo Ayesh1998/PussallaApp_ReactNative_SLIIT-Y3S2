@@ -25,8 +25,7 @@ OrderDetailsScreen.navigationOptions = (navData) => {
               iconName='ios-menu'
               onPress={() => {
                 navData.navigation.toggleDrawer()
-              }}
-        />
+              }}/>
       </HeaderButtons>
   }
 }

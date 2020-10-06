@@ -5,7 +5,7 @@ import {heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-nativ
 const MealItem = props => {
   return (
     <View style={styles.mealItem}>
-      <TouchableOpacity onPress={props.onSelectMeal}>
+      <TouchableOpacity>
         <View>
           <View style={{
             ...styles.mealRow,
@@ -29,7 +29,6 @@ const MealItem = props => {
           }}>
             <Text>{props.duration}m</Text>
             <Text>{props.complexity.toUpperCase()}</Text>
-            <Text>{props.affordability.toUpperCase()}</Text>
           </View>
         </View>
       </TouchableOpacity>
