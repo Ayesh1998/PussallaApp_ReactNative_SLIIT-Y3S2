@@ -1,11 +1,12 @@
 import React, {useState} from 'react'
 import {StyleSheet} from 'react-native'
-import * as Font from 'expo-font'
-import {AppLoading} from 'expo'
-import MealsNavigator from './navigation/meals-navigator'
 import {combineReducers, createStore} from 'redux'
 import {Provider} from 'react-redux'
-import shopReducer from './store/meals-reducer'
+import * as Font from 'expo-font'
+import {AppLoading} from 'expo'
+import ShopReducer from './store/meals-reducer'
+import Colors from './constants/colors'
+import MealsNavigator from './navigation/meals-navigator'
 
 const getFonts = () => {
   Font.loadAsync({
@@ -16,7 +17,7 @@ const getFonts = () => {
 }
 
 const mainReducer = combineReducers({
-  shop: shopReducer
+  shop: ShopReducer
 })
 
 const store = createStore(mainReducer)
@@ -39,7 +40,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: Colors.secondaryColor,
     alignItems: 'center',
     justifyContent: 'center'
   }

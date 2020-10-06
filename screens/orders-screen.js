@@ -18,8 +18,8 @@ const OrdersScreen = () => {
 
 OrdersScreen.navigationOptions = (navData) => {
   return {
-    headerTitle: 'My Orders',
-    headerLeft: (
+    headerTitle: 'MY ORDERS',
+    headerLeft: () =>
       <HeaderButtons HeaderButtonComponent={HeaderButton}>
         <Item title='Menu'
               iconName='ios-menu'
@@ -28,7 +28,6 @@ OrdersScreen.navigationOptions = (navData) => {
               }}
         />
       </HeaderButtons>
-    )
   }
 }
 

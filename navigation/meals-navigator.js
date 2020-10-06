@@ -17,12 +17,12 @@ const HomeNavigator = createStackNavigator(
     Home: HomeScreen
   },
   {
-    headerLayoutPreset: 'center',
     defaultNavigationOptions: {
+      headerTitleAlign: 'center',
       headerStyle: {
         backgroundColor: Colors.primaryColor
       },
-      headerTintColor: 'white'
+      headerTintColor: Colors.secondaryColor
     }
   }
 )
@@ -32,12 +32,12 @@ const ProfileNavigator = createStackNavigator(
     Profile: ProfileScreen
   },
   {
-    headerLayoutPreset: 'center',
     defaultNavigationOptions: {
+      headerTitleAlign: 'center',
       headerStyle: {
         backgroundColor: Colors.primaryColor
       },
-      headerTintColor: 'white'
+      headerTintColor: Colors.secondaryColor
     }
   }
 )
@@ -47,12 +47,12 @@ const OrdersNavigator = createStackNavigator(
     Orders: OrdersScreen
   },
   {
-    headerLayoutPreset: 'center',
     defaultNavigationOptions: {
+      headerTitleAlign: 'center',
       headerStyle: {
         backgroundColor: Colors.primaryColor
       },
-      headerTintColor: 'white'
+      headerTintColor: Colors.secondaryColor
     }
   }
 )
@@ -62,12 +62,12 @@ const OrderDetailsNavigator = createStackNavigator(
     OrderDetails: OrderDetailsScreen
   },
   {
-    headerLayoutPreset: 'center',
     defaultNavigationOptions: {
+      headerTitleAlign: 'center',
       headerStyle: {
         backgroundColor: Colors.primaryColor
       },
-      headerTintColor: 'white'
+      headerTintColor: Colors.secondaryColor
     }
   }
 )
@@ -77,12 +77,12 @@ const FeedbackNavigator = createStackNavigator(
     Feedback: FeedbackScreen
   },
   {
-    headerLayoutPreset: 'center',
     defaultNavigationOptions: {
+      headerTitleAlign: 'center',
       headerStyle: {
         backgroundColor: Colors.primaryColor
       },
-      headerTintColor: 'white'
+      headerTintColor: Colors.secondaryColor
     }
   }
 )
@@ -100,7 +100,7 @@ const ShopNavigator = createDrawerNavigator(
     Profile: {
       screen: ProfileNavigator,
       navigationOptions: {
-        drawerLabel: 'Profile',
+        drawerLabel: 'My Profile',
         drawerIcon: <Ionicons name='md-person'
                               size={25}/>
       }
@@ -109,7 +109,7 @@ const ShopNavigator = createDrawerNavigator(
       screen: OrdersNavigator,
       navigationOptions: {
         drawerLabel: 'My Orders',
-        drawerIcon: <Ionicons name='md-person'
+        drawerIcon: <Ionicons name='md-albums'
                               size={25}/>
       }
     },
@@ -117,7 +117,7 @@ const ShopNavigator = createDrawerNavigator(
       screen: OrderDetailsNavigator,
       navigationOptions: {
         drawerLabel: 'Order Details',
-        drawerIcon: <Ionicons name='md-person'
+        drawerIcon: <Ionicons name='md-albums'
                               size={25}/>
       }
     },
@@ -125,7 +125,7 @@ const ShopNavigator = createDrawerNavigator(
       screen: FeedbackNavigator,
       navigationOptions: {
         drawerLabel: 'Feedback',
-        drawerIcon: <Ionicons name='md-person'
+        drawerIcon: <Ionicons name='md-paper-plane'
                               size={25}/>
       }
     }
@@ -133,8 +133,7 @@ const ShopNavigator = createDrawerNavigator(
   {
     drawerBackgroundColor: 'rgba(255, 255, 255, 0.9)',
     contentOptions: {
-      activeTintColor: Colors.primaryColor,
-      labelStyle: {}
+      activeTintColor: Colors.primaryColor
     }
   }
 )

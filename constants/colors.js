@@ -1,4 +1,5 @@
 export default {
   primaryColor: '#f07800',
-  accentColor: ''
+  secondaryColor: '#fff',
+  tertiaryColor: 'rgba(90,90,90,0.8)'
 }
