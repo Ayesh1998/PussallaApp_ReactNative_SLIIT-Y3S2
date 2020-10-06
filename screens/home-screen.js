@@ -18,8 +18,8 @@ const HomeScreen = () => {
 
 HomeScreen.navigationOptions = (navData) => {
   return {
-    headerTitle: 'Home',
-    headerLeft: (
+    headerTitle: 'HOME',
+    headerLeft: () =>
       <HeaderButtons HeaderButtonComponent={HeaderButton}>
         <Item title='Menu'
               iconName='ios-menu'
@@ -27,7 +27,6 @@ HomeScreen.navigationOptions = (navData) => {
                 navData.navigation.toggleDrawer()
               }}/>
       </HeaderButtons>
-    )
   }
 }
 

@@ -11,8 +11,10 @@ const MealItem = props => {
             ...styles.mealRow,
             ...styles.mealHeader
           }}>
-            <ImageBackground source={{uri: props.image}}
-                             style={styles.bgImage}>
+            <ImageBackground style={styles.bgImage}
+                             source={{
+                               uri: props.image
+                             }}>
               <View style={styles.titleContainer}>
                 <Text style={styles.title}
                       numberOfLines={1}>
