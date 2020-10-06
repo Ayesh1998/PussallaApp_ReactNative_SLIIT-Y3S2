@@ -1,4 +1,4 @@
-import {TOGGLE_FAVORITE} from './actions'
+import {TOGGLE_FAVORITE} from '../actions/meals-actions'
 
 const initialState = {
   favoriteMeals: [],

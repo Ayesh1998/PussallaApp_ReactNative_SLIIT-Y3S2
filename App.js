@@ -4,7 +4,7 @@ import {combineReducers, createStore} from 'redux'
 import {Provider} from 'react-redux'
 import * as Font from 'expo-font'
 import {AppLoading} from 'expo'
-import ShopReducer from './store/meals-reducer'
+import ShopReducer from './store/reducers/meals-reducer'
 import Colors from './constants/colors'
 import MealsNavigator from './navigation/meals-navigator'
 
