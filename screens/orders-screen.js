@@ -1,5 +1,5 @@
 import React from 'react'
-import {FlatList, View} from 'react-native'
+import {FlatList, StyleSheet, View} from 'react-native'
 import {HeaderButtons, Item} from 'react-navigation-header-buttons'
 import HeaderButton from '../components/header-button'
 import ORDERS from '../data/order-data'
@@ -9,7 +9,7 @@ const OrdersScreen = ({navigation}) => {
   const orders = JSON.stringify(ORDERS)
 
   return (
-    <View>
+    <View style={styles.list}>
       <FlatList data={orders}
                 keyExtractor={(item, index) => index.toString()}
                 renderItem={(itemData) => (
@@ -37,5 +37,11 @@ OrdersScreen.navigationOptions = (navData) => {
       </HeaderButtons>
   }
 }
+
+const styles = StyleSheet.create({
+  list: {
+    marginTop: 7
+  }
+})
 
 export default OrdersScreen
