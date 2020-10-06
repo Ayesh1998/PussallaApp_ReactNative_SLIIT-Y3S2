@@ -11,6 +11,7 @@ const OrdersScreen = ({navigation}) => {
   return (
     <View>
       <FlatList data={orders}
+                keyExtractor={(item, index) => index.toString()}
                 renderItem={(itemData) => (
                   <OrderListItem orderNo={itemData.item.orderNo}
                                  onViewDetail={() => {

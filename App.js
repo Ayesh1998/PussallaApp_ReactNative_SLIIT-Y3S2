@@ -4,7 +4,6 @@ import {Provider} from 'react-redux'
 import * as Font from 'expo-font'
 import {AppLoading} from 'expo'
 import ShopReducer from './store/reducers/meals-reducer'
-import OrdersReducer from './store/reducers/orders-reducer'
 import MealsNavigator from './navigation/meals-navigator'
 
 const getFonts = () => {
@@ -16,8 +15,7 @@ const getFonts = () => {
 }
 
 const mainReducer = combineReducers({
-  shop: ShopReducer,
-  order: OrdersReducer
+  shop: ShopReducer
 })
 
 const store = createStore(mainReducer)
