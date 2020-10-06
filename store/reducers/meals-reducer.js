@@ -1,7 +1,7 @@
 import {TOGGLE_FAVORITE} from '../actions/meals-actions'
 
 const initialState = {
-  favoriteMeals: [],
+  favoriteMeals: []
 }
 
 const shopReducer = (state = initialState, action) => {
