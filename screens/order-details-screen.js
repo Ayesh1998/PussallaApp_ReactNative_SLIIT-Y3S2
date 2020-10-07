@@ -6,10 +6,7 @@ import HeaderButton from '../components/header-button'
 const OrderDetailsScreen = () => {
   return (
     <View>
-      <Text style={{
-        fontWeight: 'bold',
-        color: 'rgb(114, 105, 105)'
-      }}>
+      <Text>
         Order Details
       </Text>
     </View>
