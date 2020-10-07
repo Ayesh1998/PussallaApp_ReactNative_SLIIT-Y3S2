@@ -11,7 +11,7 @@ import ProfileScreen from '../screens/profile-screen'
 import OrdersScreen from '../screens/orders-screen'
 import OrderDetailsScreen from '../screens/order-details-screen'
 import FeedbackScreen from '../screens/feedback-screen'
-import CartScreen from '../screens/cart-screen';
+import CartScreen from '../screens/cart-screen'
 
 const HomeNavigator = createStackNavigator(
   {
@@ -75,18 +75,18 @@ const FeedbackNavigator = createStackNavigator(
 )
 
 const CartNavigator = createStackNavigator(
-    {
-      Cart : CartScreen
-    },
-    {
-      defaultNavigationOptions: {
-        headerTitleAlign: 'center',
-        headerStyle: {
-          backgroundColor: Colors.primaryColor
-        },
-        headerTintColor: Colors.secondaryColor
-      }
+  {
+    Cart: CartScreen
+  },
+  {
+    defaultNavigationOptions: {
+      headerTitleAlign: 'center',
+      headerStyle: {
+        backgroundColor: Colors.primaryColor
+      },
+      headerTintColor: Colors.secondaryColor
     }
+  }
 )
 
 const ShopNavigator = createDrawerNavigator(
@@ -133,7 +133,7 @@ const ShopNavigator = createDrawerNavigator(
     }
   },
   {
-    drawerBackgroundColor: 'rgba(255, 255, 255, 0.9)',
+    drawerBackgroundColor: Colors.secondaryColor,
     contentOptions: {
       activeTintColor: Colors.primaryColor
     }
