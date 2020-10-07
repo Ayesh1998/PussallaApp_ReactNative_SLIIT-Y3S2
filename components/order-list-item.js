@@ -1,5 +1,5 @@
 import React from 'react'
-import {StyleSheet, Text, TouchableOpacity} from 'react-native'
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native'
 import {heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-native-responsive-screen'
 import Colors from '../constants/colors'
 
@@ -11,12 +11,16 @@ const OrderListItem = (props) => {
                           order: props.itemData.item
                         })
                       }}>
-      <Text>{props.itemData.item.orderNo}</Text>
-      <Text>{props.itemData.item.amount}</Text>
-      <Text>{props.itemData.item.status}</Text>
-      <Text>{props.itemData.item.year}</Text>
-      <Text>{props.itemData.item.month}</Text>
-      <Text>{props.itemData.item.date}</Text>
+      <View>
+        <Text>{props.itemData.item.year}</Text>
+        <Text>{props.itemData.item.date}</Text>
+        <Text>{props.itemData.item.month}</Text>
+      </View>
+      <View>
+        <Text>{props.itemData.item.orderNo}</Text>
+        <Text>{props.itemData.item.amount}</Text>
+        <Text>{props.itemData.item.status}</Text>
+      </View>
     </TouchableOpacity>
   )
 }
