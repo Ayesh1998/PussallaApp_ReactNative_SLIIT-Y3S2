@@ -6,9 +6,7 @@ import HeaderButton from '../components/header-button'
 const OrderDetailsScreen = () => {
   return (
     <View>
-      <Text>
-        Order Details
-      </Text>
+      <Text>Order Details</Text>
     </View>
   )
 }

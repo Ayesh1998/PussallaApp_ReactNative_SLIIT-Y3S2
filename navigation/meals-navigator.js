@@ -44,21 +44,7 @@ const ProfileNavigator = createStackNavigator(
 
 const OrdersNavigator = createStackNavigator(
   {
-    Orders: OrdersScreen
-  },
-  {
-    defaultNavigationOptions: {
-      headerTitleAlign: 'center',
-      headerStyle: {
-        backgroundColor: Colors.primaryColor
-      },
-      headerTintColor: Colors.secondaryColor
-    }
-  }
-)
-
-const OrderDetailsNavigator = createStackNavigator(
-  {
+    Orders: OrdersScreen,
     OrderDetails: OrderDetailsScreen
   },
   {
@@ -109,14 +95,6 @@ const ShopNavigator = createDrawerNavigator(
       screen: OrdersNavigator,
       navigationOptions: {
         drawerLabel: 'My Orders',
-        drawerIcon: <Ionicons name='md-albums'
-                              size={25}/>
-      }
-    },
-    OrderDetails: {
-      screen: OrderDetailsNavigator,
-      navigationOptions: {
-        drawerLabel: 'Order Details',
         drawerIcon: <Ionicons name='md-albums'
                               size={25}/>
       }
