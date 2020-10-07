@@ -11,6 +11,7 @@ import ProfileScreen from '../screens/profile-screen'
 import OrdersScreen from '../screens/orders-screen'
 import OrderDetailsScreen from '../screens/order-details-screen'
 import FeedbackScreen from '../screens/feedback-screen'
+import CartScreen from '../screens/cart-screen';
 
 const HomeNavigator = createStackNavigator(
   {
@@ -87,6 +88,21 @@ const FeedbackNavigator = createStackNavigator(
   }
 )
 
+const CartNavigator = createStackNavigator(
+    {
+      Cart : CartScreen
+    },
+    {
+      defaultNavigationOptions: {
+        headerTitleAlign: 'center',
+        headerStyle: {
+          backgroundColor: Colors.primaryColor
+        },
+        headerTintColor: Colors.secondaryColor
+      }
+    }
+)
+
 const ShopNavigator = createDrawerNavigator(
   {
     Home: {
@@ -102,6 +118,14 @@ const ShopNavigator = createDrawerNavigator(
       navigationOptions: {
         drawerLabel: 'My Profile',
         drawerIcon: <Ionicons name='md-person'
+                              size={25}/>
+      }
+    },
+    Cart: {
+      screen: CartNavigator,
+      navigationOptions: {
+        drawerLabel: 'Cart',
+        drawerIcon: <Ionicons name='md-albums'
                               size={25}/>
       }
     },
