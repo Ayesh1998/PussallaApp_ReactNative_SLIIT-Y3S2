@@ -4,17 +4,28 @@ import {createDrawerNavigator} from 'react-navigation-drawer'
 import {createAppContainer, createSwitchNavigator} from 'react-navigation'
 import {Ionicons} from '@expo/vector-icons'
 import Colors from '../constants/colors'
-import HomeScreen from '../screens/home-screen'
 import AuthScreen from '../screens/auth-screen'
 import ForgotPasswordScreen from '../screens/forgot-password-screen'
 import ProfileScreen from '../screens/profile-screen'
 import OrdersScreen from '../screens/orders-screen'
 import OrderDetailsScreen from '../screens/order-details-screen'
 import FeedbackScreen from '../screens/feedback-screen'
+import CartScreen from '../screens/cart-screen'
+import CategoriesScreen from '../screens/CategoriesScreen'
+import CategoriesProductsScreen from '../screens/CategoriesProductsScreen'
+import ProductsDetailScreen from '../screens/ProductsDetailScreen'
 
 const HomeNavigator = createStackNavigator(
   {
-    Home: HomeScreen
+    Categories: {
+      screen: CategoriesScreen
+    },
+    CategoriesProducts: {
+      screen: CategoriesProductsScreen
+    },
+    ProductDetails: {
+      screen: ProductsDetailScreen
+    }
   },
   {
     defaultNavigationOptions: {
@@ -44,21 +55,7 @@ const ProfileNavigator = createStackNavigator(
 
 const OrdersNavigator = createStackNavigator(
   {
-    Orders: OrdersScreen
-  },
-  {
-    defaultNavigationOptions: {
-      headerTitleAlign: 'center',
-      headerStyle: {
-        backgroundColor: Colors.primaryColor
-      },
-      headerTintColor: Colors.secondaryColor
-    }
-  }
-)
-
-const OrderDetailsNavigator = createStackNavigator(
-  {
+    Orders: OrdersScreen,
     OrderDetails: OrderDetailsScreen
   },
   {
@@ -75,6 +72,21 @@ const OrderDetailsNavigator = createStackNavigator(
 const FeedbackNavigator = createStackNavigator(
   {
     Feedback: FeedbackScreen
+  },
+  {
+    defaultNavigationOptions: {
+      headerTitleAlign: 'center',
+      headerStyle: {
+        backgroundColor: Colors.primaryColor
+      },
+      headerTintColor: Colors.secondaryColor
+    }
+  }
+)
+
+const CartNavigator = createStackNavigator(
+  {
+    Cart: CartScreen
   },
   {
     defaultNavigationOptions: {
@@ -105,18 +117,18 @@ const ShopNavigator = createDrawerNavigator(
                               size={25}/>
       }
     },
-    Orders: {
-      screen: OrdersNavigator,
+    Cart: {
+      screen: CartNavigator,
       navigationOptions: {
-        drawerLabel: 'My Orders',
+        drawerLabel: 'Cart',
         drawerIcon: <Ionicons name='md-albums'
                               size={25}/>
       }
     },
-    OrderDetails: {
-      screen: OrderDetailsNavigator,
+    Orders: {
+      screen: OrdersNavigator,
       navigationOptions: {
-        drawerLabel: 'Order Details',
+        drawerLabel: 'My Orders',
         drawerIcon: <Ionicons name='md-albums'
                               size={25}/>
       }
@@ -131,7 +143,7 @@ const ShopNavigator = createDrawerNavigator(
     }
   },
   {
-    drawerBackgroundColor: 'rgba(255, 255, 255, 0.9)',
+    drawerBackgroundColor: Colors.secondaryColor,
     contentOptions: {
       activeTintColor: Colors.primaryColor
     }

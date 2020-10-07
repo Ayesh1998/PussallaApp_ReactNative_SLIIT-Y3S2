@@ -1,25 +1,24 @@
 import React from 'react'
-import {FlatList, View} from 'react-native'
+import {FlatList, StyleSheet, View} from 'react-native'
 import {HeaderButtons, Item} from 'react-navigation-header-buttons'
 import HeaderButton from '../components/header-button'
-import ORDERS from '../data/order-data'
+import {ORDERS} from '../data/order-data'
 import OrderListItem from '../components/order-list-item'
 
 const OrdersScreen = ({navigation}) => {
-  const orders = JSON.stringify(ORDERS)
+  const renderItemsFunction = (itemData) => {
+    return (
+      <OrderListItem navigation={navigation}
+                     itemData={itemData}/>
+    )
+  }
 
   return (
-    <View>
-      <FlatList data={orders}
-                keyExtractor={(item, index) => index.toString()}
-                renderItem={(itemData) => (
-                  <OrderListItem orderNo={itemData.item.orderNo}
-                                 onViewDetail={() => {
-                                   navigation.navigate({
-                                     routeName: 'OrderDetails'
-                                   })
-                                 }}/>
-                )}/>
+    <View style={styles.list}>
+      <FlatList keyExtractor={(item, index) => index.toString()}
+                data={ORDERS}
+                numColumns={1}
+                renderItem={renderItemsFunction}/>
     </View>
   )
 }
@@ -37,5 +36,11 @@ OrdersScreen.navigationOptions = (navData) => {
       </HeaderButtons>
   }
 }
+
+const styles = StyleSheet.create({
+  list: {
+    marginTop: 5
+  }
+})
 
 export default OrdersScreen
