@@ -42,14 +42,20 @@ const OrderListItem = (props) => {
         <View style={styles.statusView}>
           <Button title={props.itemData.item.status}
                   type='solid'
+                  disabled={true}
+                  containerStyle={styles.statusContainer}
                   titleStyle={styles.statusTitle}
+                  disabledTitleStyle={styles.statusTitle}
                   buttonStyle={
                     (props.itemData.item.status === 'Pending') ? styles.statusButtonPending :
                       (props.itemData.item.status === 'Cancelled') ? styles.statusButtonCancelled :
                         (props.itemData.item.status === 'Delivered') ? styles.statusButtonDelivered :
-                          null
-                  }
-                  containerStyle={styles.statusContainer}/>
+                          null}
+                  disabledStyle={
+                    (props.itemData.item.status === 'Pending') ? styles.statusButtonPending :
+                      (props.itemData.item.status === 'Cancelled') ? styles.statusButtonCancelled :
+                        (props.itemData.item.status === 'Delivered') ? styles.statusButtonDelivered :
+                          null}/>
         </View>
       </View>
     </TouchableOpacity>
@@ -116,7 +122,8 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start'
   },
   statusTitle: {
-    fontSize: 26
+    fontSize: 26,
+    color: Colors.secondaryColor
   },
   statusView: {
     alignSelf: 'center'

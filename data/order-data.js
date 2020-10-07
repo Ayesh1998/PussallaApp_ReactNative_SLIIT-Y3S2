@@ -3,6 +3,7 @@ import OrderModel from '../models/order-model'
 export const ORDERS_ = [
   new OrderModel(
     '126456',
+    'tharindarajapakshe@y7mail.com',
     '1500.00',
     'Pending',
     '2020',
@@ -11,6 +12,7 @@ export const ORDERS_ = [
   ),
   new OrderModel(
     '125457',
+    'tharindarajapakshe@y7mail.com',
     '2400.00',
     'Cancelled',
     '2020',
@@ -19,6 +21,7 @@ export const ORDERS_ = [
   ),
   new OrderModel(
     '124458',
+    'tharindarajapakshe@y7mail.com',
     '1800.00',
     'Delivered',
     '2020',
@@ -27,6 +30,7 @@ export const ORDERS_ = [
   ),
   new OrderModel(
     '123459',
+    'tharindarajapakshe@y7mail.com',
     '1900.00',
     'Delivered',
     '2020',
@@ -35,16 +39,18 @@ export const ORDERS_ = [
   ),
   new OrderModel(
     '122460',
+    'tharindarajapakshe@y7mail.com',
     '1850.00',
-    'Delivered',
+    'Cancelled',
     '2020',
     'JUN',
     '18'
   ),
   new OrderModel(
     '121461',
+    'tharindarajapakshe@y7mail.com',
     '1850.00',
-    'Delivered',
+    'Cancelled',
     '2020',
     'JUN',
     '18'
@@ -54,6 +60,7 @@ export const ORDERS_ = [
 export const ORDERS = [
   {
     orderNo: '126456',
+    email: 'tharindarajapakshe@y7mail.com',
     amount: '1500.00',
     status: 'Pending',
     year: '2020',
@@ -62,6 +69,7 @@ export const ORDERS = [
   },
   {
     orderNo: '125457',
+    email: 'tharindarajapakshe@y7mail.com',
     amount: '2400.00',
     status: 'Cancelled',
     year: '2020',
@@ -70,6 +78,7 @@ export const ORDERS = [
   },
   {
     orderNo: '124458',
+    email: 'tharindarajapakshe@y7mail.com',
     amount: '1800.00',
     status: 'Delivered',
     year: '2020',
@@ -78,6 +87,7 @@ export const ORDERS = [
   },
   {
     orderNo: '123459',
+    email: 'tharindarajapakshe@y7mail.com',
     amount: '1900.00',
     status: 'Delivered',
     year: '2020',
@@ -86,16 +96,18 @@ export const ORDERS = [
   },
   {
     orderNo: '122460',
+    email: 'tharindarajapakshe@y7mail.com',
     amount: '1850.00',
-    status: 'Delivered',
+    status: 'Cancelled',
     year: '2020',
     month: 'JUN',
     date: '18'
   },
   {
     orderNo: '121461',
+    email: 'tharindarajapakshe@y7mail.com',
     amount: '1850.00',
-    status: 'Delivered',
+    status: 'Cancelled',
     year: '2020',
     month: 'JUN',
     date: '18'

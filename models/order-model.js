@@ -1,6 +1,7 @@
 class OrderModel {
-  constructor(orderNo, amount, status, year, month, date) {
+  constructor(orderNo, email, amount, status, year, month, date) {
     this.orderNo = orderNo
+    this.email = email
     this.amount = amount
     this.status = status
     this.year = year
