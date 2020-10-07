@@ -1,5 +1,6 @@
 import React from 'react'
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native'
+import {Button} from 'react-native-elements'
 import {heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-native-responsive-screen'
 import Colors from '../constants/colors'
 
@@ -38,9 +39,13 @@ const OrderListItem = (props) => {
           Rs.
           {props.itemData.item.amount}
         </Text>
-        <Text style={styles.status}>
-          {props.itemData.item.status}
-        </Text>
+        <View>
+          <Button title={props.itemData.item.status}
+                  type='solid'
+                  titleStyle={styles.statusTitle}
+                  buttonStyle={styles.statusButton}
+                  containerStyle={styles.statusContainer}/>
+        </View>
       </View>
     </TouchableOpacity>
   )
@@ -78,7 +83,15 @@ const styles = StyleSheet.create({
     fontSize: 26,
     marginBottom: 10
   },
-  status: {
+  statusButton: {
+    paddingLeft: 20,
+    paddingRight: 20,
+    borderRadius: 20
+  },
+  statusContainer: {
+    alignSelf: 'flex-start'
+  },
+  statusTitle: {
     fontSize: 26
   },
   year: {
