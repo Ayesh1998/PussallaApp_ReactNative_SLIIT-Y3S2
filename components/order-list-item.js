@@ -22,15 +22,24 @@ const OrderListItem = (props) => {
           {props.itemData.item.month}
         </Text>
       </View>
-      <View style={styles.orderView}>
+      <View>
         <Text style={styles.orderNo}>
-          Order No: {props.itemData.item.orderNo}
+          Order No
+          {' '}
+          :
+          {' '}
+          {props.itemData.item.orderNo}
         </Text>
         <Text style={styles.amount}>
-          Amount: {props.itemData.item.amount}
+          Amount
+          {'   '}
+          :
+          {' '}
+          Rs.
+          {props.itemData.item.amount}
         </Text>
         <Text style={styles.status}>
-          Status: {props.itemData.item.status}
+          {props.itemData.item.status}
         </Text>
       </View>
     </TouchableOpacity>
@@ -38,19 +47,22 @@ const OrderListItem = (props) => {
 }
 
 const styles = StyleSheet.create({
+  amount: {
+    fontSize: 26,
+    marginBottom: 10
+  },
   date: {
     color: Colors.primaryColor,
-    fontSize: 50
+    fontSize: 56
   },
   dateView: {
-    width: '30%'
+    width: '28%'
   },
   item: {
     padding: 15,
     elevation: 5,
     borderRadius: 10,
     backgroundColor: Colors.secondaryColor,
-    height: hp('20%'),
     marginHorizontal: wp('4%'),
     marginVertical: hp('0.5%'),
     flex: 1,
@@ -60,10 +72,14 @@ const styles = StyleSheet.create({
   },
   month: {
     color: Colors.primaryColor,
-    fontSize: 30
+    fontSize: 34
   },
-  orderView: {
-
+  orderNo: {
+    fontSize: 26,
+    marginBottom: 10
+  },
+  status: {
+    fontSize: 26
   },
   year: {
     color: Colors.primaryColor,
