@@ -4,7 +4,6 @@ import {createDrawerNavigator} from 'react-navigation-drawer'
 import {createAppContainer, createSwitchNavigator} from 'react-navigation'
 import {Ionicons} from '@expo/vector-icons'
 import Colors from '../constants/colors'
-import HomeScreen from '../screens/home-screen'
 import AuthScreen from '../screens/auth-screen'
 import ForgotPasswordScreen from '../screens/forgot-password-screen'
 import ProfileScreen from '../screens/profile-screen'
@@ -12,10 +11,21 @@ import OrdersScreen from '../screens/orders-screen'
 import OrderDetailsScreen from '../screens/order-details-screen'
 import FeedbackScreen from '../screens/feedback-screen'
 import CartScreen from '../screens/cart-screen'
+import CategoriesScreen from '../screens/CategoriesScreen'
+import CategoriesProductsScreen from '../screens/CategoriesProductsScreen'
+import ProductsDetailScreen from '../screens/ProductsDetailScreen'
 
 const HomeNavigator = createStackNavigator(
   {
-    Home: HomeScreen
+    Categories: {
+      screen: CategoriesScreen
+    },
+    CategoriesProducts: {
+      screen: CategoriesProductsScreen
+    },
+    ProductDetails: {
+      screen: ProductsDetailScreen
+    }
   },
   {
     defaultNavigationOptions: {
