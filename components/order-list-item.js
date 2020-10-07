@@ -1,5 +1,6 @@
 import React from 'react'
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native'
+import {Button} from 'react-native-elements'
 import {heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-native-responsive-screen'
 import Colors from '../constants/colors'
 
@@ -22,35 +23,51 @@ const OrderListItem = (props) => {
           {props.itemData.item.month}
         </Text>
       </View>
-      <View style={styles.orderView}>
+      <View>
         <Text style={styles.orderNo}>
-          Order No: {props.itemData.item.orderNo}
+          Order No
+          {' '}
+          :
+          {' '}
+          {props.itemData.item.orderNo}
         </Text>
         <Text style={styles.amount}>
-          Amount: {props.itemData.item.amount}
+          Amount
+          {'   '}
+          :
+          {' '}
+          Rs.
+          {props.itemData.item.amount}
         </Text>
-        <Text style={styles.status}>
-          Status: {props.itemData.item.status}
-        </Text>
+        <View>
+          <Button title={props.itemData.item.status}
+                  type='solid'
+                  titleStyle={styles.statusTitle}
+                  buttonStyle={styles.statusButton}
+                  containerStyle={styles.statusContainer}/>
+        </View>
       </View>
     </TouchableOpacity>
   )
 }
 
 const styles = StyleSheet.create({
+  amount: {
+    fontSize: 26,
+    marginBottom: 10
+  },
   date: {
     color: Colors.primaryColor,
-    fontSize: 50
+    fontSize: 56
   },
   dateView: {
-    width: '30%'
+    width: '28%'
   },
   item: {
     padding: 15,
     elevation: 5,
     borderRadius: 10,
     backgroundColor: Colors.secondaryColor,
-    height: hp('20%'),
     marginHorizontal: wp('4%'),
     marginVertical: hp('0.5%'),
     flex: 1,
@@ -60,10 +77,22 @@ const styles = StyleSheet.create({
   },
   month: {
     color: Colors.primaryColor,
-    fontSize: 30
+    fontSize: 34
   },
-  orderView: {
-
+  orderNo: {
+    fontSize: 26,
+    marginBottom: 10
+  },
+  statusButton: {
+    paddingLeft: 20,
+    paddingRight: 20,
+    borderRadius: 20
+  },
+  statusContainer: {
+    alignSelf: 'flex-start'
+  },
+  statusTitle: {
+    fontSize: 26
   },
   year: {
     color: Colors.primaryColor,

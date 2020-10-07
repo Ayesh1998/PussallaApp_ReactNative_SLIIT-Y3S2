@@ -6,12 +6,7 @@ import HeaderButton from '../components/header-button'
 const HomeScreen = () => {
   return (
     <View>
-      <Text style={{
-        fontWeight: 'bold',
-        color: 'rgb(114, 105, 105)'
-      }}>
-        Home
-      </Text>
+      <Text>Home</Text>
     </View>
   )
 }

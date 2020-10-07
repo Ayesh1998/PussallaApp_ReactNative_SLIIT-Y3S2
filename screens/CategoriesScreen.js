@@ -99,39 +99,21 @@ const styles = StyleSheet.create({
       fontFamily : "halfmoon_bold",
       alignContent : "flex-end",
       marginTop: 10
-
-  },
-  
-});
-
+  }
+})
 
 CategoriesScreen.navigationOptions = (navData) => {
   return {
-    headerTitle: "Pussalla",
-    headerLeft: (
+    headerTitle: 'Pussalla',
+    headerLeft: () =>
       <HeaderButtons HeaderButtonComponent={HeaderButton}>
         <Item title='Menu'
               iconName='ios-menu'
               onPress={() => {
                 navData.navigation.toggleDrawer()
               }}/>
-            
       </HeaderButtons>
-    )
   }
 }
 
-
-
-export default CategoriesScreen;
-
-
-
-
-
-
-
-
-
-
-
+export default CategoriesScreen
