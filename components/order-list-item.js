@@ -39,11 +39,16 @@ const OrderListItem = (props) => {
           Rs.
           {props.itemData.item.amount}
         </Text>
-        <View>
+        <View style={styles.statusView}>
           <Button title={props.itemData.item.status}
                   type='solid'
                   titleStyle={styles.statusTitle}
-                  buttonStyle={styles.statusButton}
+                  buttonStyle={
+                    (props.itemData.item.status === 'Pending') ? styles.statusButtonPending :
+                      (props.itemData.item.status === 'Cancelled') ? styles.statusButtonCancelled :
+                        (props.itemData.item.status === 'Delivered') ? styles.statusButtonDelivered :
+                          null
+                  }
                   containerStyle={styles.statusContainer}/>
         </View>
       </View>
@@ -54,7 +59,7 @@ const OrderListItem = (props) => {
 const styles = StyleSheet.create({
   amount: {
     fontSize: 26,
-    marginBottom: 10
+    marginBottom: 20
   },
   date: {
     color: Colors.primaryColor,
@@ -83,16 +88,38 @@ const styles = StyleSheet.create({
     fontSize: 26,
     marginBottom: 10
   },
-  statusButton: {
-    paddingLeft: 20,
-    paddingRight: 20,
-    borderRadius: 20
+  statusButtonCancelled: {
+    paddingTop: 3,
+    paddingBottom: 6,
+    paddingLeft: 18,
+    paddingRight: 18,
+    borderRadius: 25,
+    backgroundColor: Colors.tertiaryColor
+  },
+  statusButtonDelivered: {
+    paddingTop: 3,
+    paddingBottom: 6,
+    paddingLeft: 18,
+    paddingRight: 18,
+    borderRadius: 25,
+    backgroundColor: Colors.accentColor
+  },
+  statusButtonPending: {
+    paddingTop: 3,
+    paddingBottom: 6,
+    paddingLeft: 18,
+    paddingRight: 18,
+    borderRadius: 25,
+    backgroundColor: Colors.primaryColor
   },
   statusContainer: {
     alignSelf: 'flex-start'
   },
   statusTitle: {
     fontSize: 26
+  },
+  statusView: {
+    alignSelf: 'center'
   },
   year: {
     color: Colors.primaryColor,
