@@ -462,17 +462,6 @@ const ProductsLists = [
     image: 'https://static2.bigstockphoto.com/9/5/2/large2/259399861.jpg'
   },
   {
-    id: '913',
-    category: 'Chicken Meat Balls',
-    name: 'SKINLESS CHILLED CHICKEN',
-    title: '913-CHICKEN MEATBALLS 1KG',
-    Description: 'Above price is for a single pack size',
-    Price: 820,
-    amount: 1,
-    unit: 'QTY',
-    image: 'https://static2.bigstockphoto.com/9/5/2/large2/259399861.jpg'
-  },
-  {
     id: '914',
     category: 'Chicken Meat Balls',
     name: 'SKINLESS CHILLED CHICKEN',

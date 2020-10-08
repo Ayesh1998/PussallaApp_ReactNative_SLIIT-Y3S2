@@ -11,7 +11,15 @@ export const ORDERS_ = [
     '08',
     '1400.00',
     '100.00',
-    '0.00'
+    '0.00',
+    [
+      {
+        name: 'Australian Lamb 500g',
+        unitPrice: '700.00',
+        quantity: '2',
+        amount: '1400.00'
+      }
+    ]
   ),
   new OrderModel(
     '125457',
@@ -23,7 +31,21 @@ export const ORDERS_ = [
     '27',
     '2300.00',
     '100.00',
-    '0.00'
+    '0.00',
+    [
+      {
+        name: 'Australian Lamb 500g',
+        unitPrice: '700.00',
+        quantity: '2',
+        amount: '1400.00'
+      },
+      {
+        name: 'Brown Eggs 10 Pack',
+        unitPrice: '300.00',
+        quantity: '3',
+        amount: '900.00'
+      }
+    ]
   ),
   new OrderModel(
     '124458',
@@ -35,7 +57,15 @@ export const ORDERS_ = [
     '28',
     '1700.00',
     '100.00',
-    '0.00'
+    '0.00',
+    [
+      {
+        name: 'Chicken Meat Balls 1kg',
+        unitPrice: '850.00',
+        quantity: '2',
+        amount: '1700.00'
+      }
+    ]
   ),
   new OrderModel(
     '123459',
@@ -45,9 +75,23 @@ export const ORDERS_ = [
     '2020',
     'JUL',
     '20',
-    '1800.00',
-    '100.00',
-    '0.00'
+    '1750.00',
+    '150.00',
+    '0.00',
+    [
+      {
+        name: 'Chicken Meat Balls 1kg',
+        unitPrice: '850.00',
+        quantity: '1',
+        amount: '850.00'
+      },
+      {
+        name: 'Brown Eggs 10 Pack',
+        unitPrice: '300.00',
+        quantity: '3',
+        amount: '900.00'
+      }
+    ]
   ),
   new OrderModel(
     '122460',
@@ -57,9 +101,23 @@ export const ORDERS_ = [
     '2020',
     'JUN',
     '18',
-    '1700.00',
-    '150.00',
-    '0.00'
+    '1750.00',
+    '200.00',
+    '50.00',
+    [
+      {
+        name: 'Chicken Meat Balls 1kg',
+        unitPrice: '850.00',
+        quantity: '1',
+        amount: '850.00'
+      },
+      {
+        name: 'Brown Eggs 10 Pack',
+        unitPrice: '300.00',
+        quantity: '3',
+        amount: '900.00'
+      }
+    ]
   ),
   new OrderModel(
     '121461',
@@ -71,7 +129,21 @@ export const ORDERS_ = [
     '18',
     '1750.00',
     '100.00',
-    '0.00'
+    '0.00',
+    [
+      {
+        name: 'Chicken Meat Balls 1kg',
+        unitPrice: '850.00',
+        quantity: '1',
+        amount: '850.00'
+      },
+      {
+        name: 'Brown Eggs 10 Pack',
+        unitPrice: '300.00',
+        quantity: '3',
+        amount: '900.00'
+      }
+    ]
   )
 ]
 
@@ -86,7 +158,15 @@ export const ORDERS = [
     date: '08',
     subTotal: '1400.00',
     deliveryFee: '100.00',
-    discount: '0.00'
+    discount: '0.00',
+    products: [
+      {
+        name: 'Australian Lamb 500g',
+        unitPrice: '700.00',
+        quantity: '2',
+        amount: '1400.00'
+      }
+    ]
   },
   {
     orderNo: '125457',
@@ -98,7 +178,21 @@ export const ORDERS = [
     date: '27',
     subTotal: '2300.00',
     deliveryFee: '100.00',
-    discount: '0.00'
+    discount: '0.00',
+    products: [
+      {
+        name: 'Australian Lamb 500g',
+        unitPrice: '700.00',
+        quantity: '2',
+        amount: '1400.00'
+      },
+      {
+        name: 'Brown Eggs 10 Pack',
+        unitPrice: '300.00',
+        quantity: '3',
+        amount: '900.00'
+      }
+    ]
   },
   {
     orderNo: '124458',
@@ -110,7 +204,15 @@ export const ORDERS = [
     date: '28',
     subTotal: '1700.00',
     deliveryFee: '100.00',
-    discount: '0.00'
+    discount: '0.00',
+    products: [
+      {
+        name: 'Chicken Meat Balls 1kg',
+        unitPrice: '850.00',
+        quantity: '2',
+        amount: '1700.00'
+      }
+    ]
   },
   {
     orderNo: '123459',
@@ -120,9 +222,23 @@ export const ORDERS = [
     year: '2020',
     month: 'JUL',
     date: '20',
-    subTotal: '1800.00',
-    deliveryFee: '100.00',
-    discount: '0.00'
+    subTotal: '1750.00',
+    deliveryFee: '150.00',
+    discount: '0.00',
+    products: [
+      {
+        name: 'Chicken Meat Balls 1kg',
+        unitPrice: '850.00',
+        quantity: '1',
+        amount: '850.00'
+      },
+      {
+        name: 'Brown Eggs 10 Pack',
+        unitPrice: '300.00',
+        quantity: '3',
+        amount: '900.00'
+      }
+    ]
   },
   {
     orderNo: '122460',
@@ -132,9 +248,23 @@ export const ORDERS = [
     year: '2020',
     month: 'JUN',
     date: '18',
-    subTotal: '1700.00',
-    deliveryFee: '150.00',
-    discount: '0.00'
+    subTotal: '1750.00',
+    deliveryFee: '200.00',
+    discount: '50.00',
+    products: [
+      {
+        name: 'Chicken Meat Balls 1kg',
+        unitPrice: '850.00',
+        quantity: '1',
+        amount: '850.00'
+      },
+      {
+        name: 'Brown Eggs 10 Pack',
+        unitPrice: '300.00',
+        quantity: '3',
+        amount: '900.00'
+      }
+    ]
   },
   {
     orderNo: '121461',
@@ -146,6 +276,20 @@ export const ORDERS = [
     date: '18',
     subTotal: '1750.00',
     deliveryFee: '100.00',
-    discount: '0.00'
+    discount: '0.00',
+    products: [
+      {
+        name: 'Chicken Meat Balls 1kg',
+        unitPrice: '850.00',
+        quantity: '1',
+        amount: '850.00'
+      },
+      {
+        name: 'Brown Eggs 10 Pack',
+        unitPrice: '300.00',
+        quantity: '3',
+        amount: '900.00'
+      }
+    ]
   }
 ]
