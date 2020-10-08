@@ -117,18 +117,18 @@ const addCartHandler = (book)=>{
                       <Text>Price</Text>
                       <Text style={styles.propText}>${book.Price}</Text>
                   </View>
-                 <View style={styles.rating}>
+                 <View style={styles.amount}>
                    <View style={{...styles.infoBox, flexDirection:"column"}}>   
                      <Text> Description! </Text>
                       <Text>{book.Description}</Text>
                    </View>
-                 <Rating
+                 {/*<Rating
                  
                   startingValue={Math.floor(parseInt(book.rating))}
                       ratingCount={5}
                       imageSize={40}
                       showRating
-                  />
+                 />*/}
                  </View>
                 <View style={{alignItems:"center"}}>
                 <TouchableOpacity style={{ 
@@ -176,7 +176,7 @@ fitImage: {
     zIndex : -1,
     resizeMode:"contain",
     width:"100%",
-    height:430
+    height:200
   },
   fitImageWithSize: {
     height: 100,
