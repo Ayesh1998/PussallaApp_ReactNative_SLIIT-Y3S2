@@ -22,7 +22,7 @@ const CategoriesScreen = (props) => {
     {id : "2" , title: "Pork Range", image : "https://static2.bigstockphoto.com/9/5/2/large2/259399861.jpg"},
     {id : "4" , title: "Mutton & Beef", image : "https://c7.alamy.com/comp/T85KHD/fresh-meat-products-in-butcher-shop-T85KHD.jpg"},
     {id : "5" , title: "Chicken Sausages", image : "https://c7.alamy.com/comp/T85KHD/fresh-meat-products-in-butcher-shop-T85KHD.jpg"},
-    {id : "8" , title: "Prok Sausages", image : "https://c7.alamy.com/comp/T85KHD/fresh-meat-products-in-butcher-shop-T85KHD.jpg"},
+    {id : "8" , title: "Pork Sausages", image : "https://c7.alamy.com/comp/T85KHD/fresh-meat-products-in-butcher-shop-T85KHD.jpg"},
     {id : "9" , title: "Chicken Meat Balls", image : "https://c7.alamy.com/comp/T85KHD/fresh-meat-products-in-butcher-shop-T85KHD.jpg"},
     {id : "6" , title: "Australian Lamb", image : "https://c7.alamy.com/comp/T85KHD/fresh-meat-products-in-butcher-shop-T85KHD.jpg"},
     {id : "7" , title: "Brown Eggs", image : "https://c7.alamy.com/comp/T85KHD/fresh-meat-products-in-butcher-shop-T85KHD.jpg"},

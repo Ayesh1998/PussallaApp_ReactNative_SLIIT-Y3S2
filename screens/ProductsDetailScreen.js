@@ -10,10 +10,13 @@ import {
   import { Rating, AirbnbRating } from 'react-native-ratings';  
   import { HeaderButtons , Item } from "react-navigation-header-buttons";
   import HeaderButton1 from '../components/header-button1'
-  import { Avatar, Badge, Icon, withBadge } from 'react-native-elements';
+  import { Avatar, Badge,  withBadge } from 'react-native-elements';
   import { NavigationEvents } from 'react-navigation';
   import {connect} from "react-redux";
   import { useDispatch,useSelector } from "react-redux";
+ import Icon from 'react-native-vector-icons/AntDesign';
+ import { FontAwesome5 ,Ionicons} from '@expo/vector-icons';
+
   
 
 
@@ -21,8 +24,13 @@ import {
 const ProductsDetailScreen =(props) =>{
     
  //const [count,setCount] = useState(-12);
+    const [cart,setCart] = useState(false);
     const count = useSelector((state) => state.itemsCount.itemsCount);
     console.log(count)
+    
+    let pCart =props.navigation.getParam("cart");
+
+    
 
     // props.navigation.setParams({
     //        count : count,
@@ -75,15 +83,22 @@ const getItemsCount = ()=>{
     // });
 }
 const addCartHandler = (book)=>{
+  setCart(true);
   getItemsCount();
   //console.log(this.state.count);
   let qty = 1;
    book.quantity = qty;
   props.addToCart(book);
  // console.log(book);
- props.navigation.goBack();
+ //props.navigation.goBack();
   // this.props.itemsCount.itemsCount
 }
+
+const addedCartHandler = ()=>{
+  console.log("clicked added to cart")
+ 
+}
+
 
 
 
@@ -92,6 +107,7 @@ const addCartHandler = (book)=>{
 
         
           let book =props.navigation.getParam("newBook");
+          book.quantity = 2;
           return (
               <ScrollView>
              <View style={styles.main}>
@@ -105,38 +121,51 @@ const addCartHandler = (book)=>{
                       style={styles.fitImage}
                   />
                   <View style={styles.infoBox}>
-                      <Text>Product </Text>
-                      <Text style={styles.propText}>{book.title}</Text>
+                      
+                      <Text numberOfLines={2} style={styles.name}>{book.title}</Text>
                   </View>
                  
                   <View style={styles.infoBox}>
-                      <Text>Category</Text>
-                      <Text style={styles.propText}>{book.category}</Text>
+                  <View style={{flexDirection:"column",marginVertical:0}}>
+                      <Text numberOfLines={2} style={styles.price}>RS.{book.Price}(LKR)</Text>
+                      <Text style={styles.amount}>{book.amount}{book.unit}</Text>
                   </View>
-                  <View style={styles.infoBox}>
-                      <Text>Price</Text>
-                      <Text style={styles.propText}>${book.Price}</Text>
                   </View>
-                 <View style={styles.amount}>
-                   <View style={{...styles.infoBox, flexDirection:"column"}}>   
-                     <Text> Description! </Text>
-                      <Text>{book.Description}</Text>
+                 
+                  <View style={{...styles.infoBox, flexDirection:"column"}}>   
+                     
+                      <Text style={styles.desc}>{book.Description}</Text>
                    </View>
-                 {/*<Rating
-                 
-                  startingValue={Math.floor(parseInt(book.rating))}
-                      ratingCount={5}
-                      imageSize={40}
-                      showRating
-                 />*/}
-                 </View>
-                <View style={{alignItems:"center"}}>
+
+                   <View style={{height:50}}></View>
+                   
+                   <View style={{flexDirection:"row" , marginLeft:20,marginRight:20}}>
+                   {(cart || pCart) ? 
                 <TouchableOpacity style={{ 
-                justifyContent:"center", 
-                alignItems:"center", 
+                flexDirection:"row", 
                 padding:10 ,
-                width:"80%", 
-                backgroundColor:"#FF543C",
+                width:"65%", 
+                backgroundColor:"#f07800",
+                borderRadius:3,
+               
+                marginBottom:20,
+                }}
+                onPress={()=>{
+                  addedCartHandler();
+                }}
+
+                disabled={true}
+                >
+                  
+                  <Ionicons name="md-checkbox" size={35} color="white" style={{marginRight:10,marginLeft:5 }}/>
+                
+              <Text style={{color:"white", fontWeight:"bold", fontSize:25,marginRight:10}}>Added to Cart</Text>
+              
+              </TouchableOpacity>:<TouchableOpacity style={{ 
+                flexDirection:"row", 
+                padding:10 ,
+                width:"65%", 
+                backgroundColor:"#f07800",
                 borderRadius:3,
                
                 marginBottom:20,
@@ -145,11 +174,71 @@ const addCartHandler = (book)=>{
                   addCartHandler(book);
                 }}
                 >
-              <Text style={{color:"white", fontWeight:"bold", fontSize:20}}>Add to Cart</Text>
+                  <FontAwesome5 name="shopping-cart" size={33} color="white" style={{marginRight:15 ,marginLeft:5 }}/>
+                
+              <Text style={{color:"white", fontWeight:"bold", fontSize:25,marginRight:10}}>Add to Cart</Text>
+              
+              </TouchableOpacity>}
+
+              <View style={{flexDirection:"row",marginVertical:5,marginLeft:18}}>
+            {book.quantity > 1 ? 
+            <TouchableOpacity onPress={
+              ()=>{
+                this.props.decreaseQuantity(book.id);
+                setTimeout(this.getItemsCount,1000);
+              }
+            }> 
+            <Icon  name="minussquareo" size={35} color="black" style={{marginRight:10, marginTop:2}} />
+            </TouchableOpacity>
+            : <TouchableOpacity disabled={true} onPress={
+             ()=>{
+               this.props.decreaseQuantity(book.id);
+               setTimeout(this.getItemsCount,1000);
+             }
+           }> 
+           <Icon name="minussquareo" size={35} color="gray" style={{marginRight:10, marginTop:2}} />
+           </TouchableOpacity>
+             }
+           
+            
+              <Text style={{fontSize:30, }}>
+                {book.quantity}
+              </Text>
+              <TouchableOpacity onPress={
+                ()=>{
+                  this.props.increaseQuantity(book.id);
+                  setTimeout(this.getItemsCount,1000);
+                }
+              }>
+              <Icon name="plussquareo" size={35} color="black" style={{marginLeft:10, marginTop:2}} />
               </TouchableOpacity>
+			  
+			  
+			  
+			  
+        
+            </View> 
                 </View>
               
-             </View>
+                
+                   
+                 {/*<Rating
+                 
+                  startingValue={Math.floor(parseInt(book.rating))}
+                      ratingCount={5}
+                      imageSize={40}
+                      showRating
+                 />
+                    <View style={styles.infoBox}>
+                   
+            </View>
+                 
+                 */}
+              
+
+                 </View>
+                
+              
              </ScrollView>
            
         )
@@ -165,8 +254,8 @@ rating : {
     marginBottom:10
 },
 infoBox: {
-   flexDirection:"row", 
-   justifyContent:"space-between", borderColor:"gray",
+   flexDirection:"column", 
+   justifyContent:"center", borderColor:"orange",
    borderWidth:1,
     padding:10,
     marginTop:15,
@@ -176,7 +265,7 @@ fitImage: {
     zIndex : -1,
     resizeMode:"contain",
     width:"100%",
-    height:200
+    height:250
   },
   fitImageWithSize: {
     height: 100,
@@ -185,9 +274,25 @@ fitImage: {
   defaultText:{
     fontSize : 15,
   },
-  propText: {
+  price: {
     fontFamily : "halfmoon_bold",
-    fontSize : 15,
+    fontSize : 22,
+    fontWeight:"bold"
+  },
+ amount: {
+    
+    fontSize : 22,
+    
+  }
+  ,name: {
+    
+    fontSize : 18,
+    fontWeight:"bold"
+  }
+  ,desc: {
+    
+    fontSize : 18,
+    
   }
   });
   
@@ -204,6 +309,19 @@ const mapDispatchToProps = (dispatch)=>{
         type : "ADD_TO_CART",
         item : itemData
       });
+    },
+
+    decreaseQuantity : (itemData)=>{
+      dispatch({
+        type : "DECREASE_QUANTITY",
+        item : itemData
+      });
+    },
+    increaseQuantity : (itemData)=>{
+      dispatch({
+        type : "INCREASE_QUANTITY",
+        item : itemData
+      });
     }
   }
 }
@@ -212,7 +330,8 @@ const mapDispatchToProps = (dispatch)=>{
 
 ProductsDetailScreen.navigationOptions = ({ navigation }) => {
     return {
-     headerTitle : navigation.getParam("newBook.title"),
+     headerTitle : "SINGLE ITEM",
+     headerTitleAlign: 'center',
       headerRight : <View style={{flexDirection:"row"}}>
        
        <View>
@@ -221,9 +340,11 @@ ProductsDetailScreen.navigationOptions = ({ navigation }) => {
            />
           <HeaderButtons HeaderButtonComponent={HeaderButton1}>
            <Item title="Favourtie" iconName="shopping-cart" 
-           onPress={()=>{
-               console.log("Pressed");
-           }}
+           onPress={
+            ()=>{
+             navigation.navigate("Cart");
+            } 
+           }
             style={{marginTop:4}}
             />
          </HeaderButtons>
