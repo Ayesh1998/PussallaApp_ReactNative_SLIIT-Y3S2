@@ -64,18 +64,40 @@ const OrderDetailsScreen = (props) => {
               <View style={styles.table}>
                 <DataTable>
                   <DataTable.Header>
-                    <DataTable.Title>Product</DataTable.Title>
-                    <DataTable.Title numeric>Unit Price</DataTable.Title>
-                    <DataTable.Title numeric>Quantity</DataTable.Title>
-                    <DataTable.Title numeric>Total Amount</DataTable.Title>
+                    <DataTable.Title style={styles.tableHeaderName}>
+                      Product Name
+                    </DataTable.Title>
+                    <DataTable.Title numeric
+                                     style={styles.tableHeaderUnitPrice}>
+                      Unit Price
+                    </DataTable.Title>
+                    <DataTable.Title numeric
+                                     style={styles.tableHeaderQty}>
+                      Qty
+                    </DataTable.Title>
+                    <DataTable.Title numeric
+                                     style={styles.tableHeaderTotal}>
+                      Total
+                    </DataTable.Title>
                   </DataTable.Header>
                   {
                     order.order.products.map((data, index) => (
                       <DataTable.Row key={index}>
-                        <DataTable.Cell>{data.name}</DataTable.Cell>
-                        <DataTable.Cell numeric>{data.unitPrice}</DataTable.Cell>
-                        <DataTable.Cell numeric>{data.quantity}</DataTable.Cell>
-                        <DataTable.Cell numeric>{data.amount}</DataTable.Cell>
+                        <DataTable.Cell style={styles.tableCellName}>
+                          {data.name}
+                        </DataTable.Cell>
+                        <DataTable.Cell numeric
+                                        style={styles.tableCellUnitPrice}>
+                          {data.unitPrice}
+                        </DataTable.Cell>
+                        <DataTable.Cell numeric
+                                        style={styles.tableCellQty}>
+                          {data.quantity}
+                        </DataTable.Cell>
+                        <DataTable.Cell numeric
+                                        style={styles.tableCellTotal}>
+                          {data.amount}
+                        </DataTable.Cell>
                       </DataTable.Row>
                     ))
                   }
@@ -218,6 +240,30 @@ const styles = StyleSheet.create({
   table: {
     marginTop: 40,
     marginBottom: 40
+  },
+  tableCellName: {
+    flex: 2.2
+  },
+  tableCellQty: {
+    flex: 0.5
+  },
+  tableCellTotal: {
+    flex: 1
+  },
+  tableCellUnitPrice: {
+    flex: 1
+  },
+  tableHeaderName: {
+    flex: 2.3
+  },
+  tableHeaderQty: {
+    flex: 0.5
+  },
+  tableHeaderTotal: {
+    flex: 1
+  },
+  tableHeaderUnitPrice: {
+    flex: 1
   },
   text: {
     fontSize: 26,
