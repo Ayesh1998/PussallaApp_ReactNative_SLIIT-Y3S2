@@ -117,12 +117,13 @@ useEffect(()=>{
                    let newBook = {
                      id : book.item.id,
                      title : book.item.title,
+                     name:book.item.name,
                      Description : book.item.Description,
                      image : book.item.image,
                      Price : book.item.Price,
                      category : book.item.category,
-                     rating : book.item.rating,
-                     favourite: book.item.favourite
+                     amount : book.item.amount,
+                     unit: book.item.unit
                    }
     return (
         <TouchableOpacity onPress={
@@ -132,23 +133,23 @@ useEffect(()=>{
             }
         }>
         <View style={styles.productMain}>
-        <View style={{width:"35%", height:200, }}>
-        <Image style={{width : "100%" , height:"95%" , resizeMode:"contain", borderRadius:5}} 
+        <View style={{width:"40%", height:200, }}>
+        <Image style={{width : "100%" , height:"100%" , resizeMode:"contain", borderRadius:5}} 
             source={{uri : book.item.image}} />
         </View>
         <View style={{ justifyContent: "space-around", alignContent:"center",  marginLeft:20,}}>
         <View style={{overFlow:"hidden"}}>
-           <Text numberOfLines={1} style={styles.text}>{book.item.title}</Text>
+           <Text numberOfLines={2} style={styles.text}>{book.item.title}</Text>
              </View>
             <Text style={{color:"#666666"}}>Category : {book.item.category}</Text>
             <Text style={styles.text}>Price : ${book.item.Price}</Text>
-            <Rating
+            {/*<Rating
                 startingValue={ Math.floor(parseInt(book.item.rating))}
                     ratingCount={5}
                     imageSize={25} 
                     style={{alignItems:"flex-start"}}
             
-                />
+            />*/}
              <View style={{flexDirection:"row"}}>
              <TouchableOpacity style={{ 
                 justifyContent:"center", 
