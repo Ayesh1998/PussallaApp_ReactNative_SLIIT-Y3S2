@@ -142,7 +142,8 @@ useEffect(()=>{
            <Text numberOfLines={2} style={styles.text}>{book.item.title}</Text>
              </View>
             <Text style={{color:"#666666"}}>Category : {book.item.category}</Text>
-            <Text style={styles.text}>Price : ${book.item.Price}</Text>
+            <Text style={styles.text1}>RS.{book.item.Price}(LKR)</Text>
+            <Text style={{color:"#666666" ,fontSize: 20,}}>{book.item.amount}{book.item.unit}</Text>
             {/*<Rating
                 startingValue={ Math.floor(parseInt(book.item.rating))}
                     ratingCount={5}
@@ -156,16 +157,16 @@ useEffect(()=>{
                 alignItems:"center", 
                 padding:10 ,
                 width:135, 
-                backgroundColor:"white",
+                backgroundColor:"orange",
                 borderRadius:3,
-                borderColor: "#FF543C",
+                borderColor: "orange",
                 borderWidth:1,
                 }} 
                 onPress={()=>{
                   addCartHandler(newBook);
                 }}
                 >
-             <Text style={{color:"#FF543C", fontWeight:"bold"}}>Add to Cart</Text>
+             <Text style={{color:"white", fontWeight:"bold"}}>Add to Cart</Text>
               </TouchableOpacity>
               <TouchableOpacity onPress={()=>{
                   addToWishListHandler(newBook);
@@ -228,7 +229,15 @@ const styles = StyleSheet.create({
   text : {
       color:"black",
       fontFamily : "halfmoon_bold",
-      fontSize: 15,
+      fontSize: 16,
+      fontWeight:"bold",
+      overflow:"hidden",
+      width:"85%",
+  },
+  text1 : {
+      color:"black",
+      fontFamily : "halfmoon_bold",
+      fontSize: 20,
       fontWeight:"bold",
       overflow:"hidden",
       width:"90%",
