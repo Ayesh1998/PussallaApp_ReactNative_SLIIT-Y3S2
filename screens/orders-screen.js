@@ -1,8 +1,10 @@
 import React from 'react'
 import {FlatList, StyleSheet, View} from 'react-native'
 import {HeaderButtons, Item} from 'react-navigation-header-buttons'
-import HeaderButton from '../components/header-button'
+import {heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-native-responsive-screen'
+import Colors from '../constants/colors'
 import {ORDERS} from '../data/order-data'
+import HeaderButton from '../components/header-button'
 import OrderListItem from '../components/order-list-item'
 
 const OrdersScreen = ({navigation}) => {
@@ -39,7 +41,10 @@ OrdersScreen.navigationOptions = (navData) => {
 
 const styles = StyleSheet.create({
   list: {
-    marginTop: 5
+    marginTop: 5,
+    width: wp('100%'),
+    height: hp('100%'),
+    backgroundColor: Colors.secondaryColor
   }
 })
 

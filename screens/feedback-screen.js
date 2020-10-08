@@ -173,8 +173,8 @@ const styles = StyleSheet.create({
     marginTop: 50,
     marginLeft: 20,
     marginRight: 20,
-    borderRadius: 10,
-    marginBottom: 60
+    marginBottom: 60,
+    borderRadius: 10
   }
 })
 

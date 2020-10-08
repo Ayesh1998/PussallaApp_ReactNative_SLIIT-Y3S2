@@ -5,7 +5,10 @@ import {heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-nativ
 import Colors from '../constants/colors'
 
 const OrderListItem = (props) => {
-  let order = props.itemData.item
+  let order = {
+    order: props.itemData.item,
+    navigation: props.navigation
+  }
 
   return (
     <TouchableOpacity style={styles.item}
