@@ -1,7 +1,9 @@
 import React from 'react'
 import {Text, View} from 'react-native'
 
-const OrderDetailsScreen = () => {
+const OrderDetailsScreen = (props) => {
+  let order = props.navigation.getParam('order')
+
   return (
     <View>
       <Text>Order Details</Text>

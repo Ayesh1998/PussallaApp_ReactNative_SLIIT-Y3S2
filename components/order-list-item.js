@@ -5,12 +5,12 @@ import {heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-nativ
 import Colors from '../constants/colors'
 
 const OrderListItem = (props) => {
+  let order = props.itemData.item
+
   return (
     <TouchableOpacity style={styles.item}
                       onPress={() => {
-                        props.navigation.navigate('OrderDetails', {
-                          order: props.itemData.item
-                        })
+                        props.navigation.navigate('OrderDetails', {order})
                       }}>
       <View style={styles.dateView}>
         <Text style={styles.year}>
