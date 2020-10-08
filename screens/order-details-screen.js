@@ -81,31 +81,39 @@ const OrderDetailsScreen = (props) => {
                   }
                 </DataTable>
               </View>
-              <Text>
+              <Text style={styles.textPrices}>
                 Sub Total
-                {' '}
+                {'       '}
                 :
+                {'  '}
+                Rs.
                 {' '}
                 {order.order.subTotal}
               </Text>
-              <Text>
+              <Text style={styles.textPrices}>
                 Delivery Fee
-                {' '}
+                {'  '}
                 :
-                {' '}
+                {'  '}
+                Rs.
+                {'    '}
                 {order.order.deliveryFee}
               </Text>
-              <Text>
+              <Text style={styles.textPrices}>
                 Discount
-                {' '}
+                {'        '}
                 :
-                {' '}
+                {'  '}
+                Rs.
+                {'        '}
                 {order.order.discount}
               </Text>
-              <Text>
+              <Text style={styles.textFinalPrice}>
                 Total
-                {' '}
+                {'               '}
                 :
+                {'  '}
+                Rs.
                 {' '}
                 {order.order.amount}
               </Text>
@@ -215,6 +223,17 @@ const styles = StyleSheet.create({
     fontSize: 26,
     marginTop: 16,
     marginLeft: 30
+  },
+  textFinalPrice: {
+    fontSize: 26,
+    marginTop: 30,
+    marginLeft: 20,
+    color: Colors.primaryColor
+  },
+  textPrices: {
+    fontSize: 26,
+    marginTop: 16,
+    marginLeft: 20
   },
   touchableOpacityStyle: {
     height: 40,
