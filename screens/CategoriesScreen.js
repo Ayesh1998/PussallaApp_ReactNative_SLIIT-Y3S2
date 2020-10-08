@@ -18,14 +18,14 @@ import { Ionicons } from '@expo/vector-icons';
 const CategoriesScreen = (props) => {
 
   const [categories, setCategories] =  useState([
-    {id : "1" , title: "Books", image : "https://image.flaticon.com/icons/png/512/562/562132.png"},
-    {id : "2" , title: "Mobiles", image : "https://icon-library.net/images/smartphone-icon-png/smartphone-icon-png-13.jpg"},
-    {id : "4" , title: "Watches", image : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcHVsPJmUpbX1qe0js7-NLLHWzrJNofP0wrim8dle-Oj5k31CC&s"},
-    {id : "5" , title: "Shoes", image : "https://cdn3.iconfinder.com/data/icons/sport-set-1/512/Shoes_2-256.png"},
-    {id : "8" , title: "Laptops", image : "https://cdn0.iconfinder.com/data/icons/devices-icons-rounded/110/Laptop-512.png"},
-    {id : "9" , title: "T-Shirt", image : "https://cdn2.iconfinder.com/data/icons/mobile-device/512/tshirt-wear-sport-man-blue-round-512.png"},
-    {id : "6" , title: "Jewelry", image : "https://www.shareicon.net/data/512x512/2016/09/02/824427_jewel_512x512.png"},
-    {id : "7" , title: "Wallets", image : "https://cdn4.iconfinder.com/data/icons/peppyicons-rounded/512/wallet2-512.png"},
+    {id : "1" , title: "Chicken Range", image : "https://c7.alamy.com/comp/T85KHD/fresh-meat-products-in-butcher-shop-T85KHD.jpg"},
+    {id : "2" , title: "Pork Range", image : "https://static2.bigstockphoto.com/9/5/2/large2/259399861.jpg"},
+    {id : "4" , title: "Mutton & Beef", image : "https://c7.alamy.com/comp/T85KHD/fresh-meat-products-in-butcher-shop-T85KHD.jpg"},
+    {id : "5" , title: "Chicken Sausages", image : "https://c7.alamy.com/comp/T85KHD/fresh-meat-products-in-butcher-shop-T85KHD.jpg"},
+    {id : "8" , title: "Prok Sausages", image : "https://c7.alamy.com/comp/T85KHD/fresh-meat-products-in-butcher-shop-T85KHD.jpg"},
+    {id : "9" , title: "Chicken Meat Balls", image : "https://c7.alamy.com/comp/T85KHD/fresh-meat-products-in-butcher-shop-T85KHD.jpg"},
+    {id : "6" , title: "Australian Lamb", image : "https://c7.alamy.com/comp/T85KHD/fresh-meat-products-in-butcher-shop-T85KHD.jpg"},
+    {id : "7" , title: "Brown Eggs", image : "https://c7.alamy.com/comp/T85KHD/fresh-meat-products-in-butcher-shop-T85KHD.jpg"},
    
 ]);
   // state = {
@@ -51,7 +51,7 @@ const CategoriesScreen = (props) => {
             }
         }>      
             <View>
-              <Image source={{uri : itemData.item.image }} style={{width:90, height:90}} />
+              <Image source={{uri : itemData.item.image }} style={{width:120, height:120}} />
             </View>
             <Text style={styles.text} numberOfLines={2}> {itemData.item.title} </Text>
        
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
               margin:5
   },
   text : {
-      fontSize : 15,
+      fontSize : 18,
       fontFamily : "halfmoon_bold",
       alignContent : "flex-end",
       marginTop: 10
