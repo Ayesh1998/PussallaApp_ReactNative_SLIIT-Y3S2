@@ -12,6 +12,9 @@ const OrderDetailsScreen = (props) => {
       <ScrollView>
         <Animated.View style={styles.animatedViewStyle}>
           <View style={styles.container}>
+            <View>
+
+            </View>
             <View style={styles.viewStyle}>
               <TouchableOpacity style={styles.touchableOpacityStyle}
                                 onPress={() => {
@@ -44,7 +47,8 @@ const styles = StyleSheet.create({
   buttonStyle: {
     color: Colors.secondaryColor,
     fontSize: 18,
-    textTransform: 'uppercase'
+    textTransform: 'uppercase',
+    textAlign: 'center'
   },
   container: {
     flex: 1,
@@ -58,12 +62,14 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.secondaryColor
   },
   touchableOpacityStyle: {
-    width: '100%',
     height: 40,
     backgroundColor: Colors.primaryColor,
     borderRadius: 10,
     justifyContent: 'center',
-    alignItems: 'center'
+    width: wp('80%'),
+    marginLeft: 20,
+    marginRight: 20,
+    padding: 10
   },
   viewStyle: {
     marginTop: 50,
