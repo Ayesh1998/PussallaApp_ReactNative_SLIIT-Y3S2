@@ -8,7 +8,10 @@ export const ORDERS_ = [
     'Pending',
     '2020',
     'OCT',
-    '08'
+    '08',
+    '1400.00',
+    '100.00',
+    '0.00'
   ),
   new OrderModel(
     '125457',
@@ -17,7 +20,10 @@ export const ORDERS_ = [
     'Cancelled',
     '2020',
     'SEP',
-    '27'
+    '27',
+    '2300.00',
+    '100.00',
+    '0.00'
   ),
   new OrderModel(
     '124458',
@@ -26,7 +32,10 @@ export const ORDERS_ = [
     'Delivered',
     '2020',
     'AUG',
-    '28'
+    '28',
+    '1700.00',
+    '100.00',
+    '0.00'
   ),
   new OrderModel(
     '123459',
@@ -35,7 +44,10 @@ export const ORDERS_ = [
     'Delivered',
     '2020',
     'JUL',
-    '20'
+    '20',
+    '1800.00',
+    '100.00',
+    '0.00'
   ),
   new OrderModel(
     '122460',
@@ -44,7 +56,10 @@ export const ORDERS_ = [
     'Cancelled',
     '2020',
     'JUN',
-    '18'
+    '18',
+    '1700.00',
+    '150.00',
+    '0.00'
   ),
   new OrderModel(
     '121461',
@@ -53,7 +68,10 @@ export const ORDERS_ = [
     'Cancelled',
     '2020',
     'JUN',
-    '18'
+    '18',
+    '1750.00',
+    '100.00',
+    '0.00'
   )
 ]
 
@@ -65,7 +83,10 @@ export const ORDERS = [
     status: 'Pending',
     year: '2020',
     month: 'OCT',
-    date: '08'
+    date: '08',
+    subTotal: '1400.00',
+    deliveryFee: '100.00',
+    discount: '0.00'
   },
   {
     orderNo: '125457',
@@ -74,7 +95,10 @@ export const ORDERS = [
     status: 'Cancelled',
     year: '2020',
     month: 'SEP',
-    date: '27'
+    date: '27',
+    subTotal: '2300.00',
+    deliveryFee: '100.00',
+    discount: '0.00'
   },
   {
     orderNo: '124458',
@@ -83,7 +107,10 @@ export const ORDERS = [
     status: 'Delivered',
     year: '2020',
     month: 'AUG',
-    date: '28'
+    date: '28',
+    subTotal: '1700.00',
+    deliveryFee: '100.00',
+    discount: '0.00'
   },
   {
     orderNo: '123459',
@@ -92,7 +119,10 @@ export const ORDERS = [
     status: 'Delivered',
     year: '2020',
     month: 'JUL',
-    date: '20'
+    date: '20',
+    subTotal: '1800.00',
+    deliveryFee: '100.00',
+    discount: '0.00'
   },
   {
     orderNo: '122460',
@@ -101,7 +131,10 @@ export const ORDERS = [
     status: 'Cancelled',
     year: '2020',
     month: 'JUN',
-    date: '18'
+    date: '18',
+    subTotal: '1700.00',
+    deliveryFee: '150.00',
+    discount: '0.00'
   },
   {
     orderNo: '121461',
@@ -110,6 +143,9 @@ export const ORDERS = [
     status: 'Cancelled',
     year: '2020',
     month: 'JUN',
-    date: '18'
+    date: '18',
+    subTotal: '1750.00',
+    deliveryFee: '100.00',
+    discount: '0.00'
   }
 ]

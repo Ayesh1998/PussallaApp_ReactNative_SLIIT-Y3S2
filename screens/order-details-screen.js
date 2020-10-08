@@ -13,7 +13,59 @@ const OrderDetailsScreen = (props) => {
         <Animated.View style={styles.animatedViewStyle}>
           <View style={styles.container}>
             <View>
-
+              <Text>
+                Order No
+                {' '}
+                :
+                {' '}
+                {order.order.orderNo}
+              </Text>
+              <Text>
+                Date
+                {' '}
+                :
+                {' '}
+                {order.order.date}
+                {' '}
+                {order.order.month}
+                {' '}
+                {order.order.year}
+              </Text>
+              <Text>
+                Status
+                {' '}
+                :
+                {' '}
+                {order.order.status}
+              </Text>
+              <Text>
+                Sub Total
+                {' '}
+                :
+                {' '}
+                {order.order.subTotal}
+              </Text>
+              <Text>
+                Delivery Fee
+                {' '}
+                :
+                {' '}
+                {order.order.deliveryFee}
+              </Text>
+              <Text>
+                Discount
+                {' '}
+                :
+                {' '}
+                {order.order.discount}
+              </Text>
+              <Text>
+                Total
+                {' '}
+                :
+                {' '}
+                {order.order.amount}
+              </Text>
             </View>
             <View style={styles.viewStyle}>
               <TouchableOpacity style={styles.touchableOpacityStyle}
