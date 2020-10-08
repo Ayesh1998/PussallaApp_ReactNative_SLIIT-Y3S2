@@ -14,11 +14,12 @@ import CartScreen from '../screens/cart-screen'
 import CategoriesScreen from '../screens/CategoriesScreen'
 import CategoriesProductsScreen from '../screens/CategoriesProductsScreen'
 import ProductsDetailScreen from '../screens/ProductsDetailScreen'
+import HomeScreen from '../screens/home-screen'
 
 const HomeNavigator = createStackNavigator(
   {
     Categories: {
-      screen: CategoriesScreen
+      screen: HomeScreen
     },
     CategoriesProducts: {
       screen: CategoriesProductsScreen
@@ -29,7 +30,7 @@ const HomeNavigator = createStackNavigator(
   },
   {
     defaultNavigationOptions: {
-      headerTitleAlign: 'center',
+      
       headerStyle: {
         backgroundColor: Colors.primaryColor
       },
