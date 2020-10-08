@@ -43,7 +43,6 @@ const styles = StyleSheet.create({
   list: {
     marginTop: 5,
     width: wp('100%'),
-    height: hp('100%'),
     backgroundColor: Colors.secondaryColor
   }
 })
