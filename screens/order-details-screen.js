@@ -4,6 +4,7 @@ import {DataTable} from 'react-native-paper'
 import {heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-native-responsive-screen'
 import Toast from 'react-native-simple-toast'
 import Colors from '../constants/colors'
+import {Button} from "react-native-elements";
 
 const OrderDetailsScreen = (props) => {
   let order = props.navigation.getParam('order')
@@ -13,33 +14,54 @@ const OrderDetailsScreen = (props) => {
       <ScrollView>
         <Animated.View style={styles.animatedViewStyle}>
           <View style={styles.container}>
-            <View>
-              <Text>
+            <View style={styles.content}>
+              <Text style={styles.text}>
                 Order No
-                {' '}
+                {'   '}
                 :
-                {' '}
+                {'   '}
                 {order.order.orderNo}
               </Text>
-              <Text>
+              <Text style={styles.text}>
                 Date
-                {' '}
+                {'           '}
                 :
-                {' '}
+                {'   '}
                 {order.order.date}
                 {' '}
                 {order.order.month}
                 {' '}
                 {order.order.year}
               </Text>
-              <Text>
-                Status
-                {' '}
-                :
-                {' '}
-                {order.order.status}
-              </Text>
-              <View>
+              <View style={styles.statusRow}>
+                <View style={styles.statusText}>
+                  <Text style={styles.text}>
+                    Status
+                    {'        '}
+                    :
+                    {'   '}
+                  </Text>
+                </View>
+                <View style={styles.statusView}>
+                  <Button title={order.order.status}
+                          type='solid'
+                          disabled={true}
+                          containerStyle={styles.statusContainer}
+                          titleStyle={styles.statusTitle}
+                          disabledTitleStyle={styles.statusTitle}
+                          buttonStyle={
+                            (order.order.status === 'Pending') ? styles.statusButtonPending :
+                              (order.order.status === 'Cancelled') ? styles.statusButtonCancelled :
+                                (order.order.status === 'Delivered') ? styles.statusButtonDelivered :
+                                  null}
+                          disabledStyle={
+                            (order.order.status === 'Pending') ? styles.statusButtonPending :
+                              (order.order.status === 'Cancelled') ? styles.statusButtonCancelled :
+                                (order.order.status === 'Delivered') ? styles.statusButtonDelivered :
+                                  null}/>
+                </View>
+              </View>
+              <View style={styles.table}>
                 <DataTable>
                   <DataTable.Header>
                     <DataTable.Title>Product</DataTable.Title>
@@ -48,8 +70,8 @@ const OrderDetailsScreen = (props) => {
                     <DataTable.Title numeric>Total Amount</DataTable.Title>
                   </DataTable.Header>
                   {
-                    order.order.products.map((data) => (
-                      <DataTable.Row>
+                    order.order.products.map((data, index) => (
+                      <DataTable.Row key={index}>
                         <DataTable.Cell>{data.name}</DataTable.Cell>
                         <DataTable.Cell numeric>{data.unitPrice}</DataTable.Cell>
                         <DataTable.Cell numeric>{data.quantity}</DataTable.Cell>
@@ -129,10 +151,70 @@ const styles = StyleSheet.create({
     alignContent: 'center',
     margin: 10
   },
+  content: {
+    width: wp('80%'),
+    marginLeft: 40,
+    marginRight: 40
+  },
   mainViewStyle: {
     width: wp('100%'),
     height: hp('100%'),
     backgroundColor: Colors.secondaryColor
+  },
+  statusButtonCancelled: {
+    paddingTop: 3,
+    paddingBottom: 6,
+    paddingLeft: 18,
+    paddingRight: 18,
+    borderRadius: 25,
+    backgroundColor: Colors.tertiaryColor
+  },
+  statusButtonDelivered: {
+    paddingTop: 3,
+    paddingBottom: 6,
+    paddingLeft: 18,
+    paddingRight: 18,
+    borderRadius: 25,
+    backgroundColor: Colors.accentColor
+  },
+  statusButtonPending: {
+    paddingTop: 3,
+    paddingBottom: 6,
+    paddingLeft: 18,
+    paddingRight: 18,
+    borderRadius: 25,
+    backgroundColor: Colors.primaryColor
+  },
+  statusContainer: {
+    alignSelf: 'flex-start'
+  },
+  statusRow: {
+    flex: 1,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignItems: 'flex-start',
+    marginVertical: hp('0.5%'),
+    marginTop: 5
+  },
+  statusText: {
+    marginLeft: -1
+  },
+  statusTitle: {
+    fontSize: 24,
+    color: Colors.secondaryColor
+  },
+  statusView: {
+    alignSelf: 'center',
+    marginTop: 20
+  },
+  table: {
+    marginTop: 40,
+    marginBottom: 40
+  },
+  text: {
+    fontSize: 26,
+    marginTop: 16,
+    marginLeft: 30
   },
   touchableOpacityStyle: {
     height: 40,
