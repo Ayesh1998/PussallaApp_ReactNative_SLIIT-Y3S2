@@ -134,7 +134,7 @@ HomeScreen.navigationOptions = ({navigation}) => {
         <Item title='Menu'
               iconName='ios-menu'
               onPress={() => {
-                navigation.navigation.toggleDrawer()
+                navigation.toggleDrawer()
               }}/>
       </HeaderButtons>,
     headerRight :  <View style={{flexDirection:"row"}}>
