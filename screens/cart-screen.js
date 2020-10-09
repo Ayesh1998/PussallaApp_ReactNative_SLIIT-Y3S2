@@ -8,7 +8,7 @@ const CartScreen = () => {
 
   return (
       <View>
-          cart
+         <Text>cart</Text> 
       </View>
   )
 }
