@@ -114,39 +114,7 @@ CategoriesScreen.navigationOptions = (navData) => {
                 navData.navigation.toggleDrawer()
               }}/>
       </HeaderButtons>,
-    headerRight :  <View style={{flexDirection:"row"}}>
-     
-   
-   <HeaderButtons HeaderButtonComponent={HeaderButton1}>
-    <Item title="Favourtie" iconName="heart" 
-    onPress={
-     ()=>{
-      navigation.navigate("Cart");
-     } 
-    }
-     style={{marginTop:4}}
-     />
-  </HeaderButtons>
   
-    
-   <View>
-   <Badge value={navigation.getParam("count")} status="primary" 
-   containerStyle={{ position: 'absolute',  right: 4 , zIndex:999}}
-    />
-   <HeaderButtons HeaderButtonComponent={HeaderButton1}>
-    <Item title="Favourtie" iconName="shopping-cart" 
-    onPress={
-     ()=>{
-      navigation.navigate("Cart");
-     } 
-    }
-     style={{marginTop:4}}
-     />
-  </HeaderButtons>
-    
-   </View>
-
-   </View>
   }
 }
 
