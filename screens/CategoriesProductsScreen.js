@@ -16,14 +16,15 @@ import { HeaderButtons , Item } from "react-navigation-header-buttons";
 import HeaderButton1 from '../components/header-button1'
 import { Avatar, Badge,  withBadge } from 'react-native-elements';
 import {connect} from "react-redux";
-import { FontAwesome } from '@expo/vector-icons';
 import { useDispatch,useSelector } from "react-redux";
+import {FontAwesome, FontAwesome5 ,Ionicons} from '@expo/vector-icons';
 
 
 
 const CategoriesProductsScreen =(props) => {
   const dispatch = useDispatch();
   const category = props.navigation.getParam("title");
+  const [cart,setCart] = useState(false);
 
   const filteredProducts = useSelector((state) => state.products.products.filter((product)=>product.category === category));
   //const count = useSelector((state) => state.itemsCount.itemsCount);
@@ -79,7 +80,10 @@ useEffect(()=>{
     props.addToWishList(book);
     getItemsCount();
     }
-
+    const addedCartHandler = ()=>{
+      console.log("clicked added to cart")
+     
+    }
   const getItemsCount = ()=>{
     // this.setState({
     //   count : this.state.count+1
@@ -104,7 +108,7 @@ useEffect(()=>{
   }
 
   const addCartHandler = (book)=>{
-   
+   setCart(true);
    let qty = 1;
    book.quantity = qty;
     //console.log(this.state.count);
@@ -117,55 +121,77 @@ useEffect(()=>{
                    let newBook = {
                      id : book.item.id,
                      title : book.item.title,
+                     name:book.item.name,
                      Description : book.item.Description,
                      image : book.item.image,
                      Price : book.item.Price,
                      category : book.item.category,
-                     rating : book.item.rating,
-                     favourite: book.item.favourite
-                   }
+                     amount : book.item.amount,
+                     unit: book.item.unit
+                     }
+
+                     let htitle = book.item.title;
     return (
         <TouchableOpacity onPress={
             ()=>{
                 props.navigation.navigate("ProductDetails", 
-                {newBook} );
+                {newBook , cart} );
             }
         }>
         <View style={styles.productMain}>
-        <View style={{width:"35%", height:200, }}>
-        <Image style={{width : "100%" , height:"95%" , resizeMode:"contain", borderRadius:5}} 
+        <View style={{width:"40%", height:200, }}>
+        <Image style={{width : "100%" , height:"100%" , resizeMode:"contain", borderRadius:5}} 
             source={{uri : book.item.image}} />
         </View>
         <View style={{ justifyContent: "space-around", alignContent:"center",  marginLeft:20,}}>
         <View style={{overFlow:"hidden"}}>
-           <Text numberOfLines={1} style={styles.text}>{book.item.title}</Text>
+           <Text numberOfLines={2} style={styles.text}>{book.item.title}</Text>
              </View>
             <Text style={{color:"#666666"}}>Category : {book.item.category}</Text>
-            <Text style={styles.text}>Price : ${book.item.Price}</Text>
-            <Rating
+            <Text style={styles.text1}>RS.{book.item.Price}(LKR)</Text>
+            <Text style={{color:"#666666" ,fontSize: 20,}}>{book.item.amount}{book.item.unit}</Text>
+            {/*<Rating
                 startingValue={ Math.floor(parseInt(book.item.rating))}
                     ratingCount={5}
                     imageSize={25} 
                     style={{alignItems:"flex-start"}}
             
-                />
+            />*/}
              <View style={{flexDirection:"row"}}>
-             <TouchableOpacity style={{ 
-                justifyContent:"center", 
-                alignItems:"center", 
+               {cart ?<TouchableOpacity style={{ 
+                flexDirection:"row",
                 padding:10 ,
-                width:135, 
-                backgroundColor:"white",
+                width:160, 
+                backgroundColor:"#f07800",
                 borderRadius:3,
-                borderColor: "#FF543C",
+                borderColor: "#f07800",
+                borderWidth:1,
+                }} 
+                onPress={()=>{
+                  addedCartHandler(newBook);
+                }}
+
+                disabled={true}
+                >
+              <Ionicons name="md-checkbox" size={25} color="white" style={{marginRight:10,marginLeft:2 }}/>
+             <Text style={{color:"white", fontWeight:"bold",fontSize:18,marginRight:5}}>Added to Cart</Text>
+              </TouchableOpacity>: 
+             <TouchableOpacity style={{ 
+                flexDirection:"row",
+                padding:10 ,
+                width:160, 
+                backgroundColor:"#f07800",
+                borderRadius:3,
+                borderColor: "#f07800",
                 borderWidth:1,
                 }} 
                 onPress={()=>{
                   addCartHandler(newBook);
                 }}
                 >
-             <Text style={{color:"#FF543C", fontWeight:"bold"}}>Add to Cart</Text>
-              </TouchableOpacity>
+              <FontAwesome5 name="shopping-cart" size={25} color="white" style={{marginRight:10 ,marginLeft:2 }}/>
+             <Text style={{color:"white", fontWeight:"bold",fontSize:18,marginRight:5}}>Add to Cart</Text>
+              </TouchableOpacity>  }
               <TouchableOpacity onPress={()=>{
                   addToWishListHandler(newBook);
                 }}>
@@ -227,7 +253,15 @@ const styles = StyleSheet.create({
   text : {
       color:"black",
       fontFamily : "halfmoon_bold",
-      fontSize: 15,
+      fontSize: 16,
+      fontWeight:"bold",
+      overflow:"hidden",
+      width:"85%",
+  },
+  text1 : {
+      color:"black",
+      fontFamily : "halfmoon_bold",
+      fontSize: 20,
       fontWeight:"bold",
       overflow:"hidden",
       width:"90%",
@@ -264,12 +298,14 @@ const mapDispatchToProps = (dispatch)=>{
 
 
 CategoriesProductsScreen.navigationOptions = ({ navigation }) => {
+  let n = navigation.getParam("title");
  
   return {
-   title : navigation.getParam("title"),
+    headerTitle:null,
     headerRight : <View style={{flexDirection:"row"}}>
+     
        <View style={{
-           width: 200,
+           width: 120,
            borderColor:"white",
            borderRadius:3,
            borderWidth:1,
@@ -284,6 +320,28 @@ CategoriesProductsScreen.navigationOptions = ({ navigation }) => {
           }}
           />
     </HeaderButtons>
+    <HeaderButtons HeaderButtonComponent={HeaderButton1}>
+     <Item title="Favourtie" iconName="home" 
+     onPress={
+      ()=>{
+        console.log("Home click kala")
+       navigation.navigate("Categories");
+      } 
+     }
+      style={{marginTop:4}}
+      />
+   </HeaderButtons>
+    <HeaderButtons HeaderButtonComponent={HeaderButton1}>
+     <Item title="Favourtie" iconName="heart" 
+     onPress={
+      ()=>{
+       navigation.navigate("Cart");
+      } 
+     }
+      style={{marginTop:4}}
+      />
+   </HeaderButtons>
+   
      
     <View>
     <Badge value={navigation.getParam("count")} status="primary" 
