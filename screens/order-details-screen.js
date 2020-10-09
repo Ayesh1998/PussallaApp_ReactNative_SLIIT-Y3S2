@@ -140,17 +140,21 @@ const OrderDetailsScreen = (props) => {
                 {order.order.amount}
               </Text>
             </View>
-            <View style={styles.viewStyle}>
-              <TouchableOpacity style={styles.touchableOpacityStyle}
-                                onPress={() => {
-                                  Toast.show('Order cancelled.', Toast.SHORT)
-                                  props.navigation.goBack()
-                                }}>
-                <Text style={styles.buttonStyle}>
-                  Cancel Order
-                </Text>
-              </TouchableOpacity>
-            </View>
+            {
+              order.order.status === 'Pending' ? (
+                <View style={styles.viewStyle}>
+                  <TouchableOpacity style={styles.touchableOpacityStyle}
+                                    onPress={() => {
+                                      Toast.show('Order cancelled.', Toast.SHORT)
+                                      props.navigation.goBack()
+                                    }}>
+                    <Text style={styles.buttonStyle}>
+                      Cancel Order
+                    </Text>
+                  </TouchableOpacity>
+                </View>
+              ) : null
+            }
           </View>
         </Animated.View>
       </ScrollView>
@@ -238,8 +242,8 @@ const styles = StyleSheet.create({
     marginTop: 20
   },
   table: {
-    marginTop: 40,
-    marginBottom: 40
+    marginTop: 30,
+    marginBottom: 30
   },
   tableCellName: {
     flex: 2.2
