@@ -12,6 +12,7 @@ import {
   } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import HeaderButton from '../components/header-button'
+import HeaderButton1 from '../components/header-button1'
 import {HeaderButtons, Item} from 'react-navigation-header-buttons'
 import { Ionicons } from '@expo/vector-icons';
 
@@ -112,7 +113,40 @@ CategoriesScreen.navigationOptions = (navData) => {
               onPress={() => {
                 navData.navigation.toggleDrawer()
               }}/>
-      </HeaderButtons>
+      </HeaderButtons>,
+    headerRight :  <View style={{flexDirection:"row"}}>
+     
+   
+   <HeaderButtons HeaderButtonComponent={HeaderButton1}>
+    <Item title="Favourtie" iconName="heart" 
+    onPress={
+     ()=>{
+      navigation.navigate("Cart");
+     } 
+    }
+     style={{marginTop:4}}
+     />
+  </HeaderButtons>
+  
+    
+   <View>
+   <Badge value={navigation.getParam("count")} status="primary" 
+   containerStyle={{ position: 'absolute',  right: 4 , zIndex:999}}
+    />
+   <HeaderButtons HeaderButtonComponent={HeaderButton1}>
+    <Item title="Favourtie" iconName="shopping-cart" 
+    onPress={
+     ()=>{
+      navigation.navigate("Cart");
+     } 
+    }
+     style={{marginTop:4}}
+     />
+  </HeaderButtons>
+    
+   </View>
+
+   </View>
   }
 }
 

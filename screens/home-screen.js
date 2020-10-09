@@ -15,8 +15,10 @@ import {
   } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import HeaderButton from '../components/header-button'
+import HeaderButton1 from '../components/header-button1'
 import {HeaderButtons, Item} from 'react-navigation-header-buttons'
 import { Ionicons } from '@expo/vector-icons';
+import { Avatar, Badge,  withBadge } from 'react-native-elements';
 
 const HomeScreen = (props) => {
 
@@ -123,7 +125,7 @@ const styles = StyleSheet.create({
   }
 })
 
-HomeScreen.navigationOptions = (navData) => {
+HomeScreen.navigationOptions = ({navigation}) => {
   return {
     headerTitle: 'PUSSALLA',
     headerTitleAlign: 'center',
@@ -132,9 +134,42 @@ HomeScreen.navigationOptions = (navData) => {
         <Item title='Menu'
               iconName='ios-menu'
               onPress={() => {
-                navData.navigation.toggleDrawer()
+                navigation.navigation.toggleDrawer()
               }}/>
-      </HeaderButtons>
+      </HeaderButtons>,
+    headerRight :  <View style={{flexDirection:"row"}}>
+     
+   
+    <HeaderButtons HeaderButtonComponent={HeaderButton1}>
+     <Item title="Favourtie" iconName="heart" 
+     onPress={
+      ()=>{
+       navigation.navigate("Cart");
+      } 
+     }
+      style={{marginTop:4}}
+      />
+   </HeaderButtons>
+   
+     
+    <View>
+    <Badge value={2} status="primary" 
+    containerStyle={{ position: 'absolute',  right: 4 , zIndex:999}}
+     />
+    <HeaderButtons HeaderButtonComponent={HeaderButton1}>
+     <Item title="Favourtie" iconName="shopping-cart" 
+     onPress={
+      ()=>{
+       navigation.navigate("Cart");
+      } 
+     }
+      style={{marginTop:4}}
+      />
+   </HeaderButtons>
+     
+    </View>
+ 
+    </View>
   }
 }
 
