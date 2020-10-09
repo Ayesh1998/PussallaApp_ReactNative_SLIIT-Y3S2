@@ -12,6 +12,7 @@ import {
   } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import HeaderButton from '../components/header-button'
+import HeaderButton1 from '../components/header-button1'
 import {HeaderButtons, Item} from 'react-navigation-header-buttons'
 import { Ionicons } from '@expo/vector-icons';
 
@@ -22,7 +23,7 @@ const CategoriesScreen = (props) => {
     {id : "2" , title: "Pork Range", image : "https://static2.bigstockphoto.com/9/5/2/large2/259399861.jpg"},
     {id : "4" , title: "Mutton & Beef", image : "https://c7.alamy.com/comp/T85KHD/fresh-meat-products-in-butcher-shop-T85KHD.jpg"},
     {id : "5" , title: "Chicken Sausages", image : "https://c7.alamy.com/comp/T85KHD/fresh-meat-products-in-butcher-shop-T85KHD.jpg"},
-    {id : "8" , title: "Prok Sausages", image : "https://c7.alamy.com/comp/T85KHD/fresh-meat-products-in-butcher-shop-T85KHD.jpg"},
+    {id : "8" , title: "Pork Sausages", image : "https://c7.alamy.com/comp/T85KHD/fresh-meat-products-in-butcher-shop-T85KHD.jpg"},
     {id : "9" , title: "Chicken Meat Balls", image : "https://c7.alamy.com/comp/T85KHD/fresh-meat-products-in-butcher-shop-T85KHD.jpg"},
     {id : "6" , title: "Australian Lamb", image : "https://c7.alamy.com/comp/T85KHD/fresh-meat-products-in-butcher-shop-T85KHD.jpg"},
     {id : "7" , title: "Brown Eggs", image : "https://c7.alamy.com/comp/T85KHD/fresh-meat-products-in-butcher-shop-T85KHD.jpg"},
@@ -112,7 +113,40 @@ CategoriesScreen.navigationOptions = (navData) => {
               onPress={() => {
                 navData.navigation.toggleDrawer()
               }}/>
-      </HeaderButtons>
+      </HeaderButtons>,
+    headerRight :  <View style={{flexDirection:"row"}}>
+     
+   
+   <HeaderButtons HeaderButtonComponent={HeaderButton1}>
+    <Item title="Favourtie" iconName="heart" 
+    onPress={
+     ()=>{
+      navigation.navigate("Cart");
+     } 
+    }
+     style={{marginTop:4}}
+     />
+  </HeaderButtons>
+  
+    
+   <View>
+   <Badge value={navigation.getParam("count")} status="primary" 
+   containerStyle={{ position: 'absolute',  right: 4 , zIndex:999}}
+    />
+   <HeaderButtons HeaderButtonComponent={HeaderButton1}>
+    <Item title="Favourtie" iconName="shopping-cart" 
+    onPress={
+     ()=>{
+      navigation.navigate("Cart");
+     } 
+    }
+     style={{marginTop:4}}
+     />
+  </HeaderButtons>
+    
+   </View>
+
+   </View>
   }
 }
 
