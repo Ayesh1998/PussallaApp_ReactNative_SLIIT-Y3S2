@@ -19,7 +19,7 @@ import HomeScreen from '../screens/home-screen'
 const HomeNavigator = createStackNavigator(
   {
     Categories: {
-      screen: CategoriesScreen
+      screen: HomeScreen
     },
     CategoriesProducts: {
       screen: CategoriesProductsScreen
