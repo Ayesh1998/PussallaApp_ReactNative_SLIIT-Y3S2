@@ -331,8 +331,30 @@ const mapDispatchToProps = (dispatch)=>{
 ProductsDetailScreen.navigationOptions = ({ navigation }) => {
     return {
      headerTitle : "SINGLE ITEM",
-     headerTitleAlign: 'center',
+     
       headerRight : <View style={{flexDirection:"row"}}>
+        <HeaderButtons HeaderButtonComponent={HeaderButton1}>
+     <Item title="Favourtie" iconName="home" 
+     onPress={
+      ()=>{
+        console.log("Home click kala")
+       navigation.navigate("Categories");
+      } 
+     }
+      style={{marginTop:4}}
+      />
+   </HeaderButtons>
+    <HeaderButtons HeaderButtonComponent={HeaderButton1}>
+     <Item title="Favourtie" iconName="heart" 
+     onPress={
+      ()=>{
+       navigation.navigate("Cart");
+      } 
+     }
+      style={{marginTop:4}}
+      />
+   </HeaderButtons>
+   
        
        <View>
           <Badge value={navigation.getParam("count")} status="primary" 
@@ -348,7 +370,7 @@ ProductsDetailScreen.navigationOptions = ({ navigation }) => {
             style={{marginTop:4}}
             />
          </HeaderButtons>
-           
+            
           </View>
       </View>
     };
