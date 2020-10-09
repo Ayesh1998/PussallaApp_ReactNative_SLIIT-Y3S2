@@ -1,16 +1,58 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Animated, ScrollView, StyleSheet, Text, TouchableOpacity, View} from 'react-native'
+import {Button} from 'react-native-elements'
 import {DataTable} from 'react-native-paper'
 import {heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-native-responsive-screen'
 import Toast from 'react-native-simple-toast'
+import Dialog from 'react-native-dialog'
 import Colors from '../constants/colors'
-import {Button} from "react-native-elements";
 
 const OrderDetailsScreen = (props) => {
   let order = props.navigation.getParam('order')
 
+  const [visible, setVisible] = useState(false)
+
+  const showDialog = async () => {
+    setVisible(true)
+  }
+
+  const hideDialog = async () => {
+    setVisible(false)
+  }
+
+  const handleCancelOrder = async () => {
+    await hideDialog()
+    Toast.show('Order cancelled.', Toast.SHORT)
+    props.navigation.goBack()
+  }
+
   return (
     <View style={styles.mainViewStyle}>
+      <Dialog.Container visible={visible}>
+        <Dialog.Title style={{
+          textTransform: 'uppercase',
+          color: Colors.primaryColor
+        }}>
+          Cancel Order
+        </Dialog.Title>
+        <Dialog.Description
+          style={{
+            marginTop: 20
+          }}>
+          Do you want to cancel this order?
+        </Dialog.Description>
+        <Dialog.Button label='Yes'
+                       onPress={handleCancelOrder}
+                       style={{
+                         marginRight: 25,
+                         color: Colors.dangerColor
+                       }}/>
+        <Dialog.Button label='No'
+                       onPress={hideDialog}
+                       style={{
+                         color: Colors.accentColor
+                       }}/>
+      </Dialog.Container>
       <ScrollView>
         <Animated.View style={styles.animatedViewStyle}>
           <View style={styles.container}>
@@ -103,51 +145,64 @@ const OrderDetailsScreen = (props) => {
                   }
                 </DataTable>
               </View>
-              <Text style={styles.textPrices}>
-                Sub Total
-                {'       '}
-                :
-                {'  '}
-                Rs.
-                {' '}
-                {order.order.subTotal}
-              </Text>
-              <Text style={styles.textPrices}>
-                Delivery Fee
-                {'  '}
-                :
-                {'  '}
-                Rs.
-                {'    '}
-                {order.order.deliveryFee}
-              </Text>
-              <Text style={styles.textPrices}>
-                Discount
-                {'        '}
-                :
-                {'  '}
-                Rs.
-                {'        '}
-                {order.order.discount}
-              </Text>
-              <Text style={styles.textFinalPrice}>
-                Total
-                {'               '}
-                :
-                {'  '}
-                Rs.
-                {' '}
-                {order.order.amount}
-              </Text>
+              <View style={styles.textView}>
+                <Text style={styles.textPrices}>
+                  Sub Total
+                  {'       '}
+                  :
+                  {'  '}
+                  Rs.
+                  {' '}
+                </Text>
+                <Text style={styles.textPricesSubTotal}>
+                  {order.order.subTotal}
+                </Text>
+              </View>
+              <View style={styles.textView}>
+                <Text style={styles.textPrices}>
+                  Delivery Fee
+                  {'  '}
+                  :
+                  {'  '}
+                  Rs.
+                  {'    '}
+                </Text>
+                <Text style={styles.textPricesDeliveryFee}>
+                  {order.order.deliveryFee}
+                </Text>
+              </View>
+              <View style={styles.textView}>
+                <Text style={styles.textPrices}>
+                  Discount
+                  {'        '}
+                  :
+                  {'  '}
+                  Rs.
+                  {'        '}
+                </Text>
+                <Text style={styles.textPricesDiscount}>
+                  {order.order.discount}
+                </Text>
+              </View>
+              <View style={styles.textView}>
+                <Text style={styles.textFinalPrice}>
+                  Total
+                  {'               '}
+                  :
+                  {'  '}
+                  Rs.
+                  {' '}
+                </Text>
+                <Text style={styles.textPricesTotal}>
+                  {order.order.amount}
+                </Text>
+              </View>
             </View>
             {
               order.order.status === 'Pending' ? (
                 <View style={styles.viewStyle}>
                   <TouchableOpacity style={styles.touchableOpacityStyle}
-                                    onPress={() => {
-                                      Toast.show('Order cancelled.', Toast.SHORT)
-                                      props.navigation.goBack()
-                                    }}>
+                                    onPress={showDialog}>
                     <Text style={styles.buttonStyle}>
                       Cancel Order
                     </Text>
@@ -284,6 +339,32 @@ const styles = StyleSheet.create({
     fontSize: 26,
     marginTop: 16,
     marginLeft: 20
+  },
+  textPricesSubTotal: {
+    fontSize: 26,
+    marginTop: 16,
+    marginLeft: 8
+  },
+  textPricesDeliveryFee: {
+    fontSize: 26,
+    marginTop: 16,
+    marginLeft: 5
+  },
+  textPricesDiscount: {
+    fontSize: 26,
+    marginTop: 16,
+    marginLeft: 8
+  },
+  textPricesTotal: {
+    fontSize: 26,
+    marginTop: 30,
+    marginLeft: 7,
+    color: Colors.primaryColor
+  },
+  textView: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignItems: 'flex-start'
   },
   touchableOpacityStyle: {
     height: 40,
