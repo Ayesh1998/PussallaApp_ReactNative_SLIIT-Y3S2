@@ -1,13 +1,15 @@
 import React from 'react'
+import {useSelector} from 'react-redux'
 import {FlatList, StyleSheet, View} from 'react-native'
 import {HeaderButtons, Item} from 'react-navigation-header-buttons'
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen'
 import Colors from '../constants/colors'
-import {ORDERS} from '../data/order-data'
 import HeaderButton from '../components/header-button'
 import OrderListItem from '../components/order-list-item'
 
 const OrdersScreen = ({navigation}) => {
+  let orders = useSelector((state) => state.orders.orders)
+
   const renderItemsFunction = (itemData) => {
     return (
       <OrderListItem navigation={navigation}
@@ -18,7 +20,7 @@ const OrdersScreen = ({navigation}) => {
   return (
     <View style={styles.list}>
       <FlatList keyExtractor={(item, index) => index.toString()}
-                data={ORDERS}
+                data={orders}
                 numColumns={1}
                 renderItem={renderItemsFunction}/>
     </View>

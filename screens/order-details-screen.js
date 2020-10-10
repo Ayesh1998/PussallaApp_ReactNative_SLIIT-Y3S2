@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import {useDispatch} from 'react-redux'
 import {Animated, ScrollView, StyleSheet, Text, TouchableOpacity, View} from 'react-native'
 import {Button} from 'react-native-elements'
 import {DataTable} from 'react-native-paper'
@@ -6,8 +7,11 @@ import {heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-nativ
 import Toast from 'react-native-simple-toast'
 import Dialog from 'react-native-dialog'
 import Colors from '../constants/colors'
+import {cancelOrder} from '../store/actions/orders-actions'
 
 const OrderDetailsScreen = (props) => {
+  const dispatch = useDispatch()
+
   let order = props.navigation.getParam('order')
 
   const [visible, setVisible] = useState(false)
@@ -21,9 +25,9 @@ const OrderDetailsScreen = (props) => {
   }
 
   const handleCancelOrder = async () => {
+    await dispatch(cancelOrder(order.order.orderNo))
     await hideDialog()
     Toast.show('Order cancelled.', Toast.SHORT)
-    props.navigation.goBack()
   }
 
   return (
