@@ -1,7 +1,7 @@
 import React from 'react'
 import {FlatList, StyleSheet, View} from 'react-native'
 import {HeaderButtons, Item} from 'react-navigation-header-buttons'
-import {heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-native-responsive-screen'
+import {widthPercentageToDP as wp} from 'react-native-responsive-screen'
 import Colors from '../constants/colors'
 import {ORDERS} from '../data/order-data'
 import HeaderButton from '../components/header-button'

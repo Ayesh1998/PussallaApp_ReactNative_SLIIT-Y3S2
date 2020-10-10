@@ -26,7 +26,7 @@ const OrderListItem = (props) => {
           {props.itemData.item.month}
         </Text>
       </View>
-      <View>
+      <View style={styles.orderView}>
         <Text style={styles.orderNo}>
           Order No
           {' '}
@@ -75,7 +75,8 @@ const styles = StyleSheet.create({
     fontSize: 56
   },
   dateView: {
-    width: '28%'
+    width: '28%',
+    marginLeft: 6
   },
   item: {
     padding: 15,
@@ -96,6 +97,9 @@ const styles = StyleSheet.create({
   orderNo: {
     fontSize: 26,
     marginBottom: 10
+  },
+  orderView: {
+    alignSelf: 'center'
   },
   statusButtonCancelled: {
     paddingTop: 3,

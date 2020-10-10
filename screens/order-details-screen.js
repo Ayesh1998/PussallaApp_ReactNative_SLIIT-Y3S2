@@ -29,29 +29,18 @@ const OrderDetailsScreen = (props) => {
   return (
     <View style={styles.mainViewStyle}>
       <Dialog.Container visible={visible}>
-        <Dialog.Title style={{
-          textTransform: 'uppercase',
-          color: Colors.primaryColor
-        }}>
+        <Dialog.Title style={styles.dialogTitle}>
           Cancel Order
         </Dialog.Title>
-        <Dialog.Description
-          style={{
-            marginTop: 20
-          }}>
+        <Dialog.Description style={styles.dialogDescription}>
           Do you want to cancel this order?
         </Dialog.Description>
         <Dialog.Button label='Yes'
                        onPress={handleCancelOrder}
-                       style={{
-                         marginRight: 25,
-                         color: Colors.dangerColor
-                       }}/>
+                       style={styles.dialogButtonYes}/>
         <Dialog.Button label='No'
                        onPress={hideDialog}
-                       style={{
-                         color: Colors.accentColor
-                       }}/>
+                       style={styles.dialogButtonNo}/>
       </Dialog.Container>
       <ScrollView>
         <Animated.View style={styles.animatedViewStyle}>
@@ -244,6 +233,20 @@ const styles = StyleSheet.create({
     width: wp('80%'),
     marginLeft: 40,
     marginRight: 40
+  },
+  dialogButtonNo: {
+    color: Colors.accentColor
+  },
+  dialogButtonYes: {
+    marginRight: 25,
+    color: Colors.dangerColor
+  },
+  dialogDescription: {
+    marginTop: 20
+  },
+  dialogTitle: {
+    textTransform: 'uppercase',
+    color: Colors.primaryColor
   },
   mainViewStyle: {
     width: wp('100%'),
