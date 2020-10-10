@@ -548,6 +548,17 @@ const ProductsLists = [
     amount: 1,
     unit: 'QTY',
     image: 'https://static2.bigstockphoto.com/9/5/2/large2/259399861.jpg'
+  },
+  {
+    id: '217',
+    category: 'Mutton Sausages',
+    name: 'SKINLESS CHILLED CHICKEN',
+    title: '217-MUTTON GARLIC 400g',
+    Description: 'Above price is for a single pack size',
+    Price: 660,
+    amount: 1,
+    unit: 'QTY',
+    image: 'https://static2.bigstockphoto.com/9/5/2/large2/259399861.jpg'
   }
 ]
 

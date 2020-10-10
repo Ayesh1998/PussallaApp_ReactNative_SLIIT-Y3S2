@@ -24,6 +24,7 @@ import {FontAwesome, FontAwesome5 ,Ionicons} from '@expo/vector-icons';
 const CategoriesProductsScreen =(props) => {
   const dispatch = useDispatch();
   const category = props.navigation.getParam("title");
+  const product = props.navigation.getParam("count");
   const [cart,setCart] = useState(false);
 
   const filteredProducts = useSelector((state) => state.products.products.filter((product)=>product.category === category));
@@ -139,15 +140,15 @@ useEffect(()=>{
             }
         }>
         <View style={styles.productMain}>
-        <View style={{width:"40%", height:200, }}>
-        <Image style={{width : "100%" , height:"100%" , resizeMode:"contain", borderRadius:5}} 
+        <View style={{width:"40%", height:180, }}>
+        <Image style={{width : "100%" , height:150, borderRadius:5 , marginTop:8}} 
             source={{uri : book.item.image}} />
         </View>
         <View style={{ justifyContent: "space-around", alignContent:"center",  marginLeft:20,}}>
         <View style={{overFlow:"hidden"}}>
            <Text numberOfLines={2} style={styles.text}>{book.item.title}</Text>
              </View>
-            <Text style={{color:"#666666"}}>Category : {book.item.category}</Text>
+            
             <Text style={styles.text1}>RS.{book.item.Price}(LKR)</Text>
             <Text style={{color:"#666666" ,fontSize: 20,}}>{book.item.amount}{book.item.unit}</Text>
             {/*<Rating
@@ -218,6 +219,7 @@ useEffect(()=>{
                   getItemsCount()
                 }}
                 />
+                <View><Text style={styles.textT}>{category}({product})</Text></View>
           <FlatList data={filteredProducts} renderItem={
               loadBooks
               }
@@ -265,6 +267,14 @@ const styles = StyleSheet.create({
       fontWeight:"bold",
       overflow:"hidden",
       width:"90%",
+  },
+  textT : {
+      color:"#f07800",
+      fontFamily : "halfmoon_bold",
+      fontSize: 25,
+      fontWeight:"bold",
+      overflow:"hidden",
+     
   }
 });
 

@@ -27,16 +27,16 @@ import { Avatar, Badge,  withBadge } from 'react-native-elements';
 
 const HomeScreen = (props) =>{
    
-    const meats= [{id : "1" , title: "Chicken Range", image : "https://c7.alamy.com/comp/T85KHD/fresh-meat-products-in-butcher-shop-T85KHD.jpg"},
-    {id : "2" , title: "Pork Range", image : "https://static2.bigstockphoto.com/9/5/2/large2/259399861.jpg"},
-    {id : "4" , title: "Mutton & Beef", image : "https://c7.alamy.com/comp/T85KHD/fresh-meat-products-in-butcher-shop-T85KHD.jpg"},];
-    const sausages =[{id : "5" , title: "Chicken Sausages", image : "https://c7.alamy.com/comp/T85KHD/fresh-meat-products-in-butcher-shop-T85KHD.jpg"},
-    {id : "8" , title: "Pork Sausages", image : "https://c7.alamy.com/comp/T85KHD/fresh-meat-products-in-butcher-shop-T85KHD.jpg"},
-    {id : "9" , title: "Mutton Sausages", image : "https://c7.alamy.com/comp/T85KHD/fresh-meat-products-in-butcher-shop-T85KHD.jpg"},
+    const meats= [{id : "1" , title: "Chicken Range",count:"5", image : "https://c7.alamy.com/comp/T85KHD/fresh-meat-products-in-butcher-shop-T85KHD.jpg"},
+    {id : "2" , title: "Pork Range",count:"8", image : "https://static2.bigstockphoto.com/9/5/2/large2/259399861.jpg"},
+    {id : "4" , title: "Mutton & Beef",count:"2", image : "https://c7.alamy.com/comp/T85KHD/fresh-meat-products-in-butcher-shop-T85KHD.jpg"},];
+    const sausages =[{id : "5" , title: "Chicken Sausages",count:"21", image : "https://c7.alamy.com/comp/T85KHD/fresh-meat-products-in-butcher-shop-T85KHD.jpg"},
+    {id : "8" , title: "Pork Sausages",count:"6", image : "https://c7.alamy.com/comp/T85KHD/fresh-meat-products-in-butcher-shop-T85KHD.jpg"},
+    {id : "9" , title: "Mutton Sausages", count:"1",image : "https://c7.alamy.com/comp/T85KHD/fresh-meat-products-in-butcher-shop-T85KHD.jpg"},
    ];
-    const other =[{id : "9" , title: "Chicken Meat Balls", image : "https://c7.alamy.com/comp/T85KHD/fresh-meat-products-in-butcher-shop-T85KHD.jpg"},
-    {id : "6" , title: "Australian Lamb", image : "https://c7.alamy.com/comp/T85KHD/fresh-meat-products-in-butcher-shop-T85KHD.jpg"},
-    {id : "7" , title: "Brown Eggs", image : "https://c7.alamy.com/comp/T85KHD/fresh-meat-products-in-butcher-shop-T85KHD.jpg"},
+    const other =[{id : "9" , title: "Chicken Meat Balls", count:"8",image : "https://c7.alamy.com/comp/T85KHD/fresh-meat-products-in-butcher-shop-T85KHD.jpg"},
+    {id : "6" , title: "Australian Lamb", count:"3",image : "https://c7.alamy.com/comp/T85KHD/fresh-meat-products-in-butcher-shop-T85KHD.jpg"},
+    {id : "7" , title: "Brown Eggs", count:"3",image : "https://c7.alamy.com/comp/T85KHD/fresh-meat-products-in-butcher-shop-T85KHD.jpg"},
    ];
   
   
@@ -45,7 +45,7 @@ const HomeScreen = (props) =>{
           <TouchableOpacity style={styles.item}
                 onPress={
               ()=>{
-                  props.navigation.navigate("CategoriesProducts" , {title:itemData.item.title,});
+                  props.navigation.navigate("CategoriesProducts" , {title:itemData.item.title,count:itemData.item.count});
               }
           }>      
               <View>
