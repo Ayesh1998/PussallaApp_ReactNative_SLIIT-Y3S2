@@ -12,3 +12,18 @@ web-report/
 
 # macOS
 .DS_Store
+
+# vscode settings
+/.vscode
+
+# webstorm settings
+.idea/
+.idea/.gitignore
+.idea/Y3S2_UEE_PussallaApp_ReactNative.iml
+.idea/aws.xml
+.idea/codeStyles/
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+
+/notes
