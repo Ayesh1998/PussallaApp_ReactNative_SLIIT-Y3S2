@@ -139,7 +139,15 @@ const ShopNavigator = createDrawerNavigator(
         drawerIcon: <Ionicons name='md-paper-plane'
                               size={25}/>
       }
-    }
+    },
+    Logout: {
+          screen: FeedbackNavigator,
+          navigationOptions: {
+              drawerLabel: 'Logout',
+              drawerIcon: <Ionicons name='md-arrow-round-forward'
+                                    size={25}/>
+          }
+      }
   },
   {
     drawerBackgroundColor: Colors.secondaryColor,
