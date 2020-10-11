@@ -18,12 +18,12 @@ const CartScreen = ({navigation}) => {
 
   return (
       <View >
-          {/<View style={{marginLeft:330, marginBottom: -0}}>/}
+          {/*{/<View style={{marginLeft:330, marginBottom: -0}}>/}*/}
           {/*    <Icon name='trash-2'*/}
           {/*          type='feather'*/}
           {/*          style={{marginTop:10}}*/}
           {/*    />*/}
-          {/</View>/}
+          {/*{/</View>/}*/}
 
         <View style={styles.list}>
           <FlatList keyExtractor={(item, index) => index.toString()}
