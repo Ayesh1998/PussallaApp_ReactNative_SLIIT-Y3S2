@@ -1,11 +1,11 @@
 import React from 'react'
-import {Text, View, TouchableOpacity, StyleSheet} from 'react-native'
+import {Text, View, TouchableOpacity, StyleSheet, TextInput, Picker} from 'react-native'
 import {HeaderButtons, Item} from 'react-navigation-header-buttons'
 import HeaderButton from '../components/header-button'
 import {widthPercentageToDP as wp} from "react-native-responsive-screen";
 import { Icon } from 'react-native-elements'
 
-const PaymentScreen = (navigation) => {
+const PaymentCardScreen = (navigation) => {
     return (
         <View style={styles.container}>
             <View style={styles.tabsStyle1}>
@@ -22,8 +22,11 @@ const PaymentScreen = (navigation) => {
                         <View style={{flexDirection: 'row',
                             justifyContent: 'space-between'}}>
                             <Text style={{ fontSize: 18, marginRight: 5 }}>Cash on Delivery</Text>
-                            <Icon name='check-circle'
-                                  type='Octicons'
+                            <Icon name='circle'
+                                  type='feather'
+                                  onPress={() => {
+                                      navigation.navigate('PaymentDetails')
+                                  }}
                             />
                         </View>
                     </TouchableOpacity>
@@ -31,14 +34,28 @@ const PaymentScreen = (navigation) => {
                         <View style={{flexDirection: 'row',
                             justifyContent: 'space-between'}}>
                             <Text style={{ fontSize: 18 , marginRight: 5 }}>Card on Delivery</Text>
-                            <Icon name='circle'
-                                  type='feather'
-                                  onPress={() => {
-                                      navigation.navigate('PaymentDetails2')
-                                  }}
+                            <Icon name='check-circle'
+                                  type='Octicons'
                             />
                         </View>
                     </TouchableOpacity>
+                </View>
+                <View>
+                    <Picker
+                        style={styles.textInputStyles}
+                        // style={{ height: 50, width: 150 }}
+                        // onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
+                    >
+                        <Picker.Item label="Select Bank" value="java" />
+                        <Picker.Item label="BOC" value="js" />
+                        <Picker.Item label="Sampath" value="java1" />
+                        <Picker.Item label="HNB" value="js2" />
+                    </Picker>
+                    <Text style={{marginLeft:7}}>Card No</Text>
+                    <TextInput
+                        style={styles.textInputStyle}
+                        placeholder=""
+                    />
                 </View>
             </View>
             <View style={styles.tabsStyle3}>
@@ -68,7 +85,7 @@ const PaymentScreen = (navigation) => {
                     alignItems: "center",
                 }}
                 onPress={() => {
-                    navData.navigate("PaymentDetails");
+                    navData.navigate("Cart");
                 }}
             >
                 <Text style={{ color: "#fff", fontSize: 18 }}>CONTINUE</Text>
@@ -77,7 +94,7 @@ const PaymentScreen = (navigation) => {
     )
 }
 
-PaymentScreen.navigationOptions = (navData) => {
+PaymentCardScreen.navigationOptions = (navData) => {
     return {
         headerTitle: 'Payment Details',
         headerLeft: (
@@ -102,7 +119,7 @@ const styles = StyleSheet.create({
         // alignItems: "center",
     },
     tabsStyle1: {
-        flex: 2,
+        flex: 3.1,
         justifyContent: "flex-start",
         borderColor: "#f07800",
         borderWidth: 1,
@@ -129,12 +146,12 @@ const styles = StyleSheet.create({
     methodeStyle:{
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginTop: 50,
+        marginTop: 20,
         margin: 10,
 
     },
     methodeHeaderStyle:{
-       padding: 5,
+        padding: 5,
         fontSize: 20
     },
     totalBillHeaderStyle:{
@@ -147,11 +164,24 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         padding:40,
         alignItems: "center",
+        marginTop : -25
     },
     listOneItemStyle:{
         padding : 10,
         fontSize: 18
-    }
+    },
+    textInputStyle: {
+        borderColor: "#f07800",
+        width: wp("87%"),
+        borderWidth: 1,
+        borderRadius: 10,
+        height: 35,
+        marginLeft: 9,
+        // marginRight: 20,
+        padding: 8,
+        marginTop: 8,
+        alignItems: "center",
+    },
 });
 
-export default PaymentScreen
+export default PaymentCardScreen
