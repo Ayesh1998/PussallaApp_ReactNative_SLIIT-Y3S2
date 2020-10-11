@@ -248,6 +248,8 @@ const styles = StyleSheet.create({
   main: {
     flex : 1,
     padding : 10,
+    marginLeft: 10,
+    marginRight: 10
 },
 rating : {
     marginTop:10,
