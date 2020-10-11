@@ -14,6 +14,9 @@ import CartScreen from '../screens/cart-screen'
 import CategoriesProductsScreen from '../screens/CategoriesProductsScreen'
 import ProductsDetailScreen from '../screens/ProductsDetailScreen'
 import HomeScreen from '../screens/home-screen'
+import DeliveryDetailsScreen from "../screens/delivery-details-screen";
+import PaymentScreen from "../screens/payment-details-screen";
+import PaymentCardScreen from "../screens/payment-details-screen2";
 
 const HomeNavigator = createStackNavigator(
   {
@@ -85,7 +88,50 @@ const FeedbackNavigator = createStackNavigator(
 
 const CartNavigator = createStackNavigator(
   {
-    Cart: CartScreen
+    Cart: {
+      screen: CartScreen
+    },
+    DeliveryDetails: {
+      screen: DeliveryDetailsScreen
+    },
+    PaymentDetails: {
+      screen: PaymentScreen
+    },
+    PaymentDetails2: {
+      screen: PaymentCardScreen
+    },
+
+  },
+
+  {
+    defaultNavigationOptions: {
+
+      headerStyle: {
+        backgroundColor: Colors.primaryColor
+      },
+      headerTintColor: Colors.secondaryColor
+    }
+  }
+)
+
+const PaymentNavigator = createStackNavigator(
+  {
+    Cart: PaymentScreen
+  },
+  {
+    defaultNavigationOptions: {
+      headerTitleAlign: 'center',
+      headerStyle: {
+        backgroundColor: Colors.primaryColor
+      },
+      headerTintColor: Colors.secondaryColor
+    }
+  }
+)
+
+const PaymentCardNavigator = createStackNavigator(
+  {
+    Cart: PaymentCardScreen
   },
   {
     defaultNavigationOptions: {
@@ -140,14 +186,30 @@ const ShopNavigator = createDrawerNavigator(
                               size={25}/>
       }
     },
-    Logout: {
-          screen: FeedbackNavigator,
-          navigationOptions: {
-              drawerLabel: 'Logout',
-              drawerIcon: <Ionicons name='md-arrow-round-forward'
-                                    size={25}/>
-          }
+    Payment: {
+      screen: PaymentNavigator,
+      navigationOptions: {
+        drawerLabel: 'Payment Details',
+        drawerIcon: <Ionicons name='md-albums'
+                              size={25}/>
       }
+    },
+    PaymentCard: {
+      screen: PaymentCardNavigator,
+      navigationOptions: {
+        drawerLabel: 'Payment Details Card',
+        drawerIcon: <Ionicons name='md-albums'
+                              size={25}/>
+      }
+    },
+    Logout: {
+      screen: FeedbackNavigator,
+      navigationOptions: {
+        drawerLabel: 'Logout',
+        drawerIcon: <Ionicons name='md-arrow-round-forward'
+                              size={25}/>
+      }
+    }
   },
   {
     drawerBackgroundColor: Colors.secondaryColor,
