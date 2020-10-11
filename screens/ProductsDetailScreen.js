@@ -27,6 +27,7 @@ const ProductsDetailScreen =(props) =>{
     const [cart,setCart] = useState(false);
     const count = useSelector((state) => state.itemsCount.itemsCount);
     console.log(count)
+    const[quantity, setQuantity] = useState(1);
     
     let pCart =props.navigation.getParam("cart");
 
@@ -99,6 +100,22 @@ const addedCartHandler = ()=>{
  
 }
 
+const decreaseQuantity = (id)=>{
+  console.log("decrease");
+  if(quantity > 1){
+    setQuantity(quantity - 1)
+  }
+  
+ 
+}
+
+const increaseQuantity = (id)=>{
+  console.log("increase");
+  
+  setQuantity(quantity + 1)
+ 
+}
+
 
 
 
@@ -107,7 +124,9 @@ const addedCartHandler = ()=>{
 
         
           let book =props.navigation.getParam("newBook");
-          book.quantity = 2;
+          //book.quantity = 2;
+
+          
           return (
               <ScrollView>
              <View style={styles.main}>
@@ -181,19 +200,19 @@ const addedCartHandler = ()=>{
               </TouchableOpacity>}
 
               <View style={{flexDirection:"row",marginVertical:5,marginLeft:18}}>
-            {book.quantity > 1 ? 
+            {quantity > 1 ? 
             <TouchableOpacity onPress={
               ()=>{
-                this.props.decreaseQuantity(book.id);
-                setTimeout(this.getItemsCount,1000);
+                decreaseQuantity(book.id);
+                setTimeout(getItemsCount,1000);
               }
             }> 
             <Icon  name="minussquareo" size={35} color="black" style={{marginRight:10, marginTop:2}} />
             </TouchableOpacity>
             : <TouchableOpacity disabled={true} onPress={
              ()=>{
-               this.props.decreaseQuantity(book.id);
-               setTimeout(this.getItemsCount,1000);
+               decreaseQuantity(book.id);
+               setTimeout(getItemsCount,1000);
              }
            }> 
            <Icon name="minussquareo" size={35} color="gray" style={{marginRight:10, marginTop:2}} />
@@ -202,12 +221,12 @@ const addedCartHandler = ()=>{
            
             
               <Text style={{fontSize:30, }}>
-                {book.quantity}
+                {quantity}
               </Text>
               <TouchableOpacity onPress={
                 ()=>{
-                  this.props.increaseQuantity(book.id);
-                  setTimeout(this.getItemsCount,1000);
+                  increaseQuantity(book.id);
+                  setTimeout(getItemsCount,1000);
                 }
               }>
               <Icon name="plussquareo" size={35} color="black" style={{marginLeft:10, marginTop:2}} />
@@ -248,8 +267,7 @@ const styles = StyleSheet.create({
   main: {
     flex : 1,
     padding : 10,
-    marginLeft: 10,
-    marginRight: 10
+
 },
 rating : {
     marginTop:10,
@@ -359,7 +377,7 @@ ProductsDetailScreen.navigationOptions = ({ navigation }) => {
    
        
        <View>
-          <Badge value={navigation.getParam("count")} status="primary" 
+          <Badge value={3} status="primary" 
           containerStyle={{ position: 'absolute',  right: 4 , zIndex:999}}
            />
           <HeaderButtons HeaderButtonComponent={HeaderButton1}>
