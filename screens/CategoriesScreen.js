@@ -78,7 +78,8 @@ const styles = StyleSheet.create({
       flex : 1,
       padding : 5,
       backgroundColor : "#f5f5f0",
-       
+      marginLeft: 10,
+      marginRight: 10
   },
   item:{
       flex : 1,

@@ -21,9 +21,13 @@
     "assetBundlePatterns": [
       "**/*"
     ],
+    "ios": {
+      "supportsTablet": true
+    },
     "android": {
       "package": "com.sliit.pussallaapp",
       "versionCode": 1
-    }
+    },
+    "description": "Pussalla App"
   }
 }

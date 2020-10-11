@@ -5,12 +5,15 @@ import {heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-nativ
 import Colors from '../constants/colors'
 
 const OrderListItem = (props) => {
+  let order = {
+    order: props.itemData.item,
+    navigation: props.navigation
+  }
+
   return (
     <TouchableOpacity style={styles.item}
                       onPress={() => {
-                        props.navigation.navigate('OrderDetails', {
-                          order: props.itemData.item
-                        })
+                        props.navigation.navigate('OrderDetails', {order})
                       }}>
       <View style={styles.dateView}>
         <Text style={styles.year}>
@@ -23,7 +26,7 @@ const OrderListItem = (props) => {
           {props.itemData.item.month}
         </Text>
       </View>
-      <View>
+      <View style={styles.orderView}>
         <Text style={styles.orderNo}>
           Order No
           {' '}
@@ -39,12 +42,23 @@ const OrderListItem = (props) => {
           Rs.
           {props.itemData.item.amount}
         </Text>
-        <View>
+        <View style={styles.statusView}>
           <Button title={props.itemData.item.status}
                   type='solid'
+                  disabled={true}
+                  containerStyle={styles.statusContainer}
                   titleStyle={styles.statusTitle}
-                  buttonStyle={styles.statusButton}
-                  containerStyle={styles.statusContainer}/>
+                  disabledTitleStyle={styles.statusTitle}
+                  buttonStyle={
+                    (props.itemData.item.status === 'Pending') ? styles.statusButtonPending :
+                      (props.itemData.item.status === 'Cancelled') ? styles.statusButtonCancelled :
+                        (props.itemData.item.status === 'Delivered') ? styles.statusButtonDelivered :
+                          null}
+                  disabledStyle={
+                    (props.itemData.item.status === 'Pending') ? styles.statusButtonPending :
+                      (props.itemData.item.status === 'Cancelled') ? styles.statusButtonCancelled :
+                        (props.itemData.item.status === 'Delivered') ? styles.statusButtonDelivered :
+                          null}/>
         </View>
       </View>
     </TouchableOpacity>
@@ -54,14 +68,15 @@ const OrderListItem = (props) => {
 const styles = StyleSheet.create({
   amount: {
     fontSize: 26,
-    marginBottom: 10
+    marginBottom: 20
   },
   date: {
     color: Colors.primaryColor,
     fontSize: 56
   },
   dateView: {
-    width: '28%'
+    width: '28%',
+    marginLeft: 6
   },
   item: {
     padding: 15,
@@ -83,16 +98,42 @@ const styles = StyleSheet.create({
     fontSize: 26,
     marginBottom: 10
   },
-  statusButton: {
-    paddingLeft: 20,
-    paddingRight: 20,
-    borderRadius: 20
+  orderView: {
+    alignSelf: 'center'
+  },
+  statusButtonCancelled: {
+    paddingTop: 3,
+    paddingBottom: 6,
+    paddingLeft: 18,
+    paddingRight: 18,
+    borderRadius: 25,
+    backgroundColor: Colors.tertiaryColor
+  },
+  statusButtonDelivered: {
+    paddingTop: 3,
+    paddingBottom: 6,
+    paddingLeft: 18,
+    paddingRight: 18,
+    borderRadius: 25,
+    backgroundColor: Colors.accentColor
+  },
+  statusButtonPending: {
+    paddingTop: 3,
+    paddingBottom: 6,
+    paddingLeft: 18,
+    paddingRight: 18,
+    borderRadius: 25,
+    backgroundColor: Colors.primaryColor
   },
   statusContainer: {
     alignSelf: 'flex-start'
   },
   statusTitle: {
-    fontSize: 26
+    fontSize: 26,
+    color: Colors.secondaryColor
+  },
+  statusView: {
+    alignSelf: 'center'
   },
   year: {
     color: Colors.primaryColor,

@@ -462,17 +462,6 @@ const ProductsLists = [
     image: 'https://static2.bigstockphoto.com/9/5/2/large2/259399861.jpg'
   },
   {
-    id: '913',
-    category: 'Chicken Meat Balls',
-    name: 'SKINLESS CHILLED CHICKEN',
-    title: '913-CHICKEN MEATBALLS 1KG',
-    Description: 'Above price is for a single pack size',
-    Price: 820,
-    amount: 1,
-    unit: 'QTY',
-    image: 'https://static2.bigstockphoto.com/9/5/2/large2/259399861.jpg'
-  },
-  {
     id: '914',
     category: 'Chicken Meat Balls',
     name: 'SKINLESS CHILLED CHICKEN',
@@ -545,6 +534,17 @@ const ProductsLists = [
     title: '512-Brown Eggs 10 Pack',
     Description: '10 No. Eggs per single pack',
     Price: 300,
+    amount: 1,
+    unit: 'QTY',
+    image: 'https://static2.bigstockphoto.com/9/5/2/large2/259399861.jpg'
+  },
+  {
+    id: '217',
+    category: 'Mutton Sausages',
+    name: 'SKINLESS CHILLED CHICKEN',
+    title: '217-MUTTON GARLIC 400g',
+    Description: 'Above price is for a single pack size',
+    Price: 660,
     amount: 1,
     unit: 'QTY',
     image: 'https://static2.bigstockphoto.com/9/5/2/large2/259399861.jpg'

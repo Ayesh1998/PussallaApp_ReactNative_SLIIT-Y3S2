@@ -3,10 +3,11 @@ import {combineReducers, createStore} from 'redux'
 import {Provider} from 'react-redux'
 import * as Font from 'expo-font'
 import {AppLoading} from 'expo'
-import ShopReducer from './store/reducers/meals-reducer'
 import MealsNavigator from './navigation/meals-navigator'
+import ShopReducer from './store/reducers/meals-reducer'
 import ProductsReducers from './store/reducers/ProductsReducers'
 import CartReducers from './store/reducers/CartReducers'
+import OrderReducers from './store/reducers/orders-reducer'
 
 const getFonts = () => {
   Font.loadAsync({
@@ -22,7 +23,8 @@ const mainReducer = combineReducers({
   products: ProductsReducers,
   cartItems: CartReducers,
   itemsCount: CartReducers,
-  wishListItems: CartReducers
+  wishListItems: CartReducers,
+  orders: OrderReducers
 })
 
 const store = createStore(mainReducer)
