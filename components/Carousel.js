@@ -40,7 +40,7 @@ const Carousel = ({ data }) => {
 
     useEffect(()=> {
         setDataList(data)
-        //infiniteScroll(dataList , mySlide)
+        infiniteScroll(dataList , mySlide)
     })
 
 

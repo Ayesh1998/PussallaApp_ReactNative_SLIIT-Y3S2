@@ -169,7 +169,7 @@ useEffect(()=>{
                 borderWidth:1,
                 }} 
                 onPress={()=>{
-                  addedCartHandler(newBook);
+                  console.log("add to cart click kala")
                 }}
 
                 disabled={true}
@@ -187,14 +187,14 @@ useEffect(()=>{
                 borderWidth:1,
                 }} 
                 onPress={()=>{
-                  addCartHandler(newBook);
+                  console.log("added to cart click kala")
                 }}
                 >
               <FontAwesome5 name="shopping-cart" size={25} color="white" style={{marginRight:10 ,marginLeft:2 }}/>
              <Text style={{color:"white", fontWeight:"bold",fontSize:18,marginRight:5}}>Add to Cart</Text>
               </TouchableOpacity>  }
               <TouchableOpacity onPress={()=>{
-                  addToWishListHandler(newBook);
+                   console.log("wishlist click kala")
                 }}>
                   <FontAwesome name="heart" size={33} color="#FF543C" style={{marginLeft:10}}/>
              
@@ -233,8 +233,7 @@ const styles = StyleSheet.create({
   main: {
       flex : 1,
       padding : 10,
-      marginLeft: 10,
-      marginRight: 10
+     
   },
   bookMain :{
       marginTop:10,
@@ -355,7 +354,7 @@ CategoriesProductsScreen.navigationOptions = ({ navigation }) => {
    
      
     <View>
-    <Badge value={navigation.getParam("count")} status="primary" 
+    <Badge value={2} status="primary" 
     containerStyle={{ position: 'absolute',  right: 4 , zIndex:999}}
      />
     <HeaderButtons HeaderButtonComponent={HeaderButton1}>
