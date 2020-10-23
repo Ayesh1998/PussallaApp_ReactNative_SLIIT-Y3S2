@@ -17,6 +17,7 @@ import HomeScreen from '../screens/home-screen'
 import DeliveryDetailsScreen from "../screens/delivery-details-screen";
 import PaymentScreen from "../screens/payment-details-screen";
 import PaymentCardScreen from "../screens/payment-details-screen2";
+import WishListScreen from '../screens/WishListScreen'
 
 const HomeNavigator = createStackNavigator(
   {
@@ -114,6 +115,28 @@ const CartNavigator = createStackNavigator(
   }
 )
 
+const WishListNavigator = createStackNavigator(
+  {
+    WishList: {
+      screen: WishListScreen
+    },
+    ProductDetails: {
+      screen: ProductsDetailScreen
+    }
+
+  },
+
+  {
+    defaultNavigationOptions: {
+
+      headerStyle: {
+        backgroundColor: Colors.primaryColor
+      },
+      headerTintColor: Colors.secondaryColor
+    }
+  }
+)
+
 const PaymentNavigator = createStackNavigator(
   {
     Cart: PaymentScreen
@@ -167,6 +190,14 @@ const ShopNavigator = createDrawerNavigator(
       navigationOptions: {
         drawerLabel: 'Cart',
         drawerIcon: <Ionicons name='md-cart'
+                              size={25}/>
+      }
+    },
+    WishList: {
+      screen: WishListNavigator,
+      navigationOptions: {
+        drawerLabel: 'WishList',
+        drawerIcon: <Ionicons name='md-heart'
                               size={25}/>
       }
     },

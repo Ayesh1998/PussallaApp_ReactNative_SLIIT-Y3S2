@@ -166,7 +166,7 @@ const HomeScreen = (props) =>{
        <Item title="Favourtie" iconName="heart" 
        onPress={
         ()=>{
-         navigation.navigate("Cart");
+         navigation.navigate("WishList");
         } 
        }
         style={{marginTop:4}}
