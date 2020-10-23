@@ -1,6 +1,8 @@
 const ProductsLists = [
   {
     id: '3',
+    cart:false, 
+    quantity:1,
     category: 'Chicken Range',
     name: 'SKINLESS CHILLED CHICKEN',
     title: '3-SKINLESS CHILLED CHICKEN 1KG',
@@ -12,6 +14,8 @@ const ProductsLists = [
   },
   {
     id: '13',
+    cart:false, 
+    quantity:1,
     category: 'Chicken Range',
     name: 'SKINLESS CHILLED CHICKEN',
     title: '13-SKINLESS LEGS 1KG',
@@ -23,6 +27,8 @@ const ProductsLists = [
   },
   {
     id: '14',
+    cart:false, 
+    quantity:1,
     category: 'Chicken Range',
     name: 'SKINLESS CHILLED CHICKEN',
     title: '14-SKINLESS THIGHS 1KG',
@@ -34,6 +40,8 @@ const ProductsLists = [
   },
   {
     id: '15',
+    cart:false, 
+    quantity:1,
     category: 'Chicken Range',
     name: 'SKINLESS CHILLED CHICKEN',
     title: '15-SKINLESS BREAST 1KG',
@@ -45,6 +53,8 @@ const ProductsLists = [
   },
   {
     id: '29',
+    cart:false, 
+    quantity:1,
     category: 'Chicken Range',
     name: 'SKINLESS CHILLED CHICKEN',
     title: '29-SKINLESS THIGHS 1KG',
@@ -56,6 +66,8 @@ const ProductsLists = [
   },
   {
     id: '153',
+    cart:false, 
+    quantity:1,
     category: 'Pork Range',
     name: 'SKINLESS CHILLED CHICKEN',
     title: '153-PORK CHOPS 1KG',
@@ -67,6 +79,8 @@ const ProductsLists = [
   },
   {
     id: '154',
+    cart:false, 
+    quantity:1,
     category: 'Pork Range',
     name: 'SKINLESS CHILLED CHICKEN',
     title: '154-LEG PORK 1KG',
@@ -78,6 +92,8 @@ const ProductsLists = [
   },
   {
     id: '155',
+    cart:false, 
+    quantity:1,
     category: 'Pork Range',
     name: 'SKINLESS CHILLED CHICKEN',
     title: '155-CURRY PORK 1KG',
@@ -89,6 +105,8 @@ const ProductsLists = [
   },
   {
     id: '156',
+    cart:false, 
+    quantity:1,
     category: 'Pork Range',
     name: 'SKINLESS CHILLED CHICKEN',
     title: '156-PORK LINGUS 1KG',
@@ -100,6 +118,8 @@ const ProductsLists = [
   },
   {
     id: '157',
+    cart:false, 
+    quantity:1,
     category: 'Pork Range',
     name: 'SKINLESS CHILLED CHICKEN',
     title: '157-SPARE RIBS',
@@ -111,6 +131,8 @@ const ProductsLists = [
   },
   {
     id: '163',
+    cart:false, 
+    quantity:1,
     category: 'Pork Range',
     name: 'SKINLESS CHILLED CHICKEN',
     title: '163-PORK CUBES 1KG',
@@ -122,6 +144,8 @@ const ProductsLists = [
   },
   {
     id: '166',
+    cart:false, 
+    quantity:1,
     category: 'Pork Range',
     name: 'SKINLESS CHILLED CHICKEN',
     title: '166-PORK BITE',
@@ -133,6 +157,8 @@ const ProductsLists = [
   },
   {
     id: '949',
+    cart:false, 
+    quantity:1,
     category: 'Pork Range',
     name: 'SKINLESS CHILLED CHICKEN',
     title: '949-HONEY PORK KNUCKLE 1KG',
@@ -144,6 +170,8 @@ const ProductsLists = [
   },
   {
     id: '964',
+    cart:false, 
+    quantity:1,
     category: 'Mutton & Beef',
     name: 'SKINLESS CHILLED CHICKEN',
     title: '964-MUTTON 300g',
@@ -155,6 +183,8 @@ const ProductsLists = [
   },
   {
     id: '251',
+    cart:false, 
+    quantity:1,
     category: 'Mutton & Beef',
     name: 'SKINLESS CHILLED CHICKEN',
     title: '964-MUTTON BONE IN 250g',
@@ -166,6 +196,8 @@ const ProductsLists = [
   },
   {
     id: '901',
+    cart:false, 
+    quantity:1,
     category: 'Chicken Sausages',
     name: 'SKINLESS CHILLED CHICKEN',
     title: '901-CHICKEN SAUSAGES 1KG',
@@ -177,6 +209,8 @@ const ProductsLists = [
   },
   {
     id: '902',
+    cart:false, 
+    quantity:1,
     category: 'Chicken Sausages',
     name: 'SKINLESS CHILLED CHICKEN',
     title: '902-CHICKEN SAUSAGES 500g',
@@ -188,6 +222,8 @@ const ProductsLists = [
   },
   {
     id: '903',
+    cart:false, 
+    quantity:1,
     category: 'Chicken Sausages',
     name: 'SKINLESS CHILLED CHICKEN',
     title: '903-CHICKEN SAUSAGES 250g',
@@ -199,6 +235,8 @@ const ProductsLists = [
   },
   {
     id: '904',
+    cart:false, 
+    quantity:1,
     category: 'Chicken Sausages',
     name: 'SKINLESS CHILLED CHICKEN',
     title: '904-CHICKEN SAUSAGES 150g',
@@ -210,6 +248,8 @@ const ProductsLists = [
   },
   {
     id: '918',
+    cart:false, 
+    quantity:1,
     category: 'Chicken Sausages',
     name: 'SKINLESS CHILLED CHICKEN',
     title: '918-CHEESE & ONION 250g',
@@ -221,6 +261,8 @@ const ProductsLists = [
   },
   {
     id: '919',
+    cart:false, 
+    quantity:1,
     category: 'Chicken Sausages',
     name: 'SKINLESS CHILLED CHICKEN',
     title: '919-CHEESE & ONION 1KG',
@@ -232,6 +274,8 @@ const ProductsLists = [
   },
   {
     id: '921',
+    cart:false, 
+    quantity:1,
     category: 'Chicken Sausages',
     name: 'SKINLESS CHILLED CHICKEN',
     title: '921-CHICKEN GARLIC 250g',
@@ -243,6 +287,8 @@ const ProductsLists = [
   },
   {
     id: '922',
+    cart:false, 
+    quantity:1,
     category: 'Chicken Sausages',
     name: 'SKINLESS CHILLED CHICKEN',
     title: '922-CHICKEN GARLIC 1KG',
@@ -254,6 +300,8 @@ const ProductsLists = [
   },
   {
     id: '923',
+    cart:false, 
+    quantity:1,
     category: 'Chicken Sausages',
     name: 'SKINLESS CHILLED CHICKEN',
     title: '932-CHICKEN BOCKWURST 350g',
@@ -265,6 +313,8 @@ const ProductsLists = [
   },
   {
     id: '924',
+    cart:false,
+    quantity:1, 
     category: 'Chicken Sausages',
     name: 'SKINLESS CHILLED CHICKEN',
     title: '942-CHICKEN BOCKWURST 1KG',
@@ -276,6 +326,8 @@ const ProductsLists = [
   },
   {
     id: '927',
+    cart:false, 
+    quantity:1,
     category: 'Chicken Sausages',
     name: 'SKINLESS CHILLED CHICKEN',
     title: '972-PUSSALLA MIX GRILL 350g',
@@ -287,6 +339,8 @@ const ProductsLists = [
   },
   {
     id: '929',
+    cart:false, 
+    quantity:1,
     category: 'Chicken Sausages',
     name: 'SKINLESS CHILLED CHICKEN',
     title: '929-CHICKEN DAIYA BITE 200g',
@@ -298,6 +352,8 @@ const ProductsLists = [
   },
   {
     id: '932',
+    cart:false, 
+    quantity:1,
     category: 'Chicken Sausages',
     name: 'SKINLESS CHILLED CHICKEN',
     title: '932-KOCHCHI BITE 200g',
@@ -309,6 +365,8 @@ const ProductsLists = [
   },
   {
     id: '933',
+    cart:false, 
+    quantity:1,
     category: 'Chicken Sausages',
     name: 'SKINLESS CHILLED CHICKEN',
     title: '933-KOCHCHI SAUSAGE 1KG',
@@ -320,6 +378,8 @@ const ProductsLists = [
   },
   {
     id: '934',
+    cart:false, 
+    quantity:1,
     category: 'Chicken Sausages',
     name: 'SKINLESS CHILLED CHICKEN',
     title: '934-DAIYA SAUSAGES 1KG',
@@ -331,6 +391,8 @@ const ProductsLists = [
   },
   {
     id: '935',
+    cart:false, 
+    quantity:1,
     category: 'Chicken Sausages',
     name: 'SKINLESS CHILLED CHICKEN',
     title: '935-CHEESY DARK 200g',
@@ -342,6 +404,8 @@ const ProductsLists = [
   },
   {
     id: '942',
+    cart:false, 
+    quantity:1,
     category: 'Chicken Sausages',
     name: 'SKINLESS CHILLED CHICKEN',
     title: '942-CHICKEN HAM 150g',
@@ -353,6 +417,8 @@ const ProductsLists = [
   },
   {
     id: '943',
+    cart:false, 
+    quantity:1,
     category: 'Chicken Sausages',
     name: 'SKINLESS CHILLED CHICKEN',
     title: '943-CHICKEN ROLL 150g',
@@ -364,6 +430,8 @@ const ProductsLists = [
   },
   {
     id: '953',
+    cart:false, 
+    quantity:1,
     category: 'Chicken Sausages',
     name: 'SKINLESS CHILLED CHICKEN',
     title: '953-CHICKEN KOCHCHI 500g',
@@ -375,6 +443,8 @@ const ProductsLists = [
   },
   {
     id: '954',
+    cart:false, 
+    quantity:1,
     category: 'Chicken Sausages',
     name: 'SKINLESS CHILLED CHICKEN',
     title: '954-CHICKEN DAIYA BITE 500g',
@@ -386,6 +456,8 @@ const ProductsLists = [
   },
   {
     id: '955',
+    cart:false, 
+    quantity:1,
     category: 'Chicken Sausages',
     name: 'SKINLESS CHILLED CHICKEN',
     title: '955-CHICKEN BACON 150g',
@@ -397,6 +469,8 @@ const ProductsLists = [
   },
   {
     id: '930',
+    cart:false, 
+    quantity:1,
     category: 'Pork Sausages',
     name: 'SKINLESS CHILLED CHICKEN',
     title: '930-PORK SAUSAGES 1KG',
@@ -408,6 +482,8 @@ const ProductsLists = [
   },
   {
     id: '936',
+    cart:false, 
+    quantity:1,
     category: 'Pork Sausages',
     name: 'SKINLESS CHILLED CHICKEN',
     title: '936-BACON SAUSAGES 300g',
@@ -419,6 +495,8 @@ const ProductsLists = [
   },
   {
     id: '937',
+    cart:false, 
+    quantity:1,
     category: 'Pork Sausages',
     name: 'SKINLESS CHILLED CHICKEN',
     title: '937-PORK GARLIC 400g',
@@ -430,6 +508,8 @@ const ProductsLists = [
   },
   {
     id: '940',
+    cart:false, 
+    quantity:1,
     category: 'Pork Sausages',
     name: 'SKINLESS CHILLED CHICKEN',
     title: '940-BACK BACON 150g',
@@ -441,6 +521,8 @@ const ProductsLists = [
   },
   {
     id: '951',
+    cart:false, 
+    quantity:1,
     category: 'Pork Sausages',
     name: 'SKINLESS CHILLED CHICKEN',
     title: '951-BACK BACON 500g',
@@ -452,6 +534,8 @@ const ProductsLists = [
   },
   {
     id: '952',
+    cart:false, 
+    quantity:1,
     category: 'Pork Sausages',
     name: 'SKINLESS CHILLED CHICKEN',
     title: '952-PAWKIES 1KG',
@@ -463,6 +547,8 @@ const ProductsLists = [
   },
   {
     id: '914',
+    cart:false, 
+    quantity:1,
     category: 'Chicken Meat Balls',
     name: 'SKINLESS CHILLED CHICKEN',
     title: '914-CHICKEN MEATBALLS 500g',
@@ -474,6 +560,8 @@ const ProductsLists = [
   },
   {
     id: '915',
+    cart:false, 
+    quantity:1,
     category: 'Chicken Meat Balls',
     name: 'SKINLESS CHILLED CHICKEN',
     title: '915-CHICKEN MEATBALLS 200g',
@@ -485,6 +573,8 @@ const ProductsLists = [
   },
   {
     id: '916',
+    cart:false, 
+    quantity:1,
     category: 'Chicken Meat Balls',
     name: 'SKINLESS CHILLED CHICKEN',
     title: '916-CHICKEN MEATBALLS 100g',
@@ -496,6 +586,8 @@ const ProductsLists = [
   },
   {
     id: '917',
+    cart:false, 
+    quantity:1,
     category: 'Chicken Meat Balls',
     name: 'SKINLESS CHILLED CHICKEN',
     title: '917-CHICKEN MEATBALLS BITE 500g',
@@ -507,6 +599,8 @@ const ProductsLists = [
   },
   {
     id: '913',
+    cart:false, 
+    quantity:1,
     category: 'Chicken Meat Balls',
     name: 'Chicken Meat Balls',
     title: '913-Chicken Meat Balls 1kg',
@@ -518,6 +612,8 @@ const ProductsLists = [
   },
   {
     id: '813',
+    cart:false, 
+    quantity:1,
     category: 'Australian Lamb',
     name: 'Australian Lamb 500g',
     title: '813-Australian Lamb 500g',
@@ -529,6 +625,8 @@ const ProductsLists = [
   },
   {
     id: '512',
+    cart:false, 
+    quantity:1,
     category: 'Brown Eggs',
     name: 'Brown Eggs 10 Pack',
     title: '512-Brown Eggs 10 Pack',
@@ -540,6 +638,8 @@ const ProductsLists = [
   },
   {
     id: '217',
+    cart:false, 
+    quantity:1,
     category: 'Mutton Sausages',
     name: 'SKINLESS CHILLED CHICKEN',
     title: '217-MUTTON GARLIC 400g',

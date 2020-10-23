@@ -20,7 +20,8 @@ const getFonts = () => {
 
 const mainReducer = combineReducers({
   shop: ShopReducer,
-  products: ProductsReducers,
+ // products: ProductsReducers,
+  products:  CartReducers, 
   cartItems: CartReducers,
   itemsCount: CartReducers,
   wishListItems: CartReducers,

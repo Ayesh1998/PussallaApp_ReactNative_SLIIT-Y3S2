@@ -1,9 +1,12 @@
+import ProductsLists from "../../screens/ProductsData";
+
 const initialState = {
     cartItems : [],
     wishListItems : [],
-    itemsCount : 0
+    itemsCount : 0,
+    products : ProductsLists
 
-}
+} 
   
 export default (state=initialState, action)=>{
     if(action.type=="ADD_TO_CART"){
@@ -58,6 +61,10 @@ export default (state=initialState, action)=>{
                 { ...item, quantity: item.quantity-1 } : 
                 item
             ) ,
+            products: state.products.map(item => item.id === action.item ?
+                { ...item, quantity: item.quantity-1 } : 
+                item
+            ) ,
             }
     }
     else if(action.type=="INCREASE_QUANTITY"){
@@ -65,6 +72,19 @@ export default (state=initialState, action)=>{
             ...state,
             cartItems: state.cartItems.map(item => item.id === action.item ?
                 { ...item, quantity: item.quantity+1 } : 
+                item
+            ) ,
+            products: state.products.map(item => item.id === action.item ?
+                { ...item, quantity: item.quantity+1 } : 
+                item
+            ) ,
+            }
+    }
+    else if(action.type=="CART_TRUE"){
+        return {
+            ...state,
+            products: state.products.map(item => item.id === action.item ?
+                { ...item, cart: true } : 
                 item
             ) ,
             }
