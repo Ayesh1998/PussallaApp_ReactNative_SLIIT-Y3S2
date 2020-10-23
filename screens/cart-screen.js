@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useRef } from "react";
 import {View, TextInput, StyleSheet, Image, FlatList, TouchableOpacity} from 'react-native'
-import {Text, Button, Icon} from "react-native-elements";
+import {Text, Button, Icon, Badge} from "react-native-elements";
 import {HeaderButtons, Item} from 'react-navigation-header-buttons'
 import HeaderButton from '../components/header-button'
 import {heightPercentageToDP as hp, widthPercentageToDP as wp} from "react-native-responsive-screen";
@@ -68,7 +68,7 @@ const CartScreen = ({navigation}) => {
                   }}
 
               >
-                  <Text style={{ color: "#fff", fontSize: 18 }}>CONTINUE</Text>
+                  <Text style={{ color: "#fff", fontSize: 18 }}>BUY NOW</Text>
               </TouchableOpacity>
           </View>
       </View>
@@ -78,6 +78,7 @@ const CartScreen = ({navigation}) => {
 CartScreen.navigationOptions = (navData) => {
     return {
         headerTitle: 'Cart',
+        headerTitleAlign: 'center',
         headerLeft: () =>
             <HeaderButtons HeaderButtonComponent={HeaderButton}>
                 <Item title='Menu'
@@ -86,6 +87,22 @@ CartScreen.navigationOptions = (navData) => {
                           navData.navigation.toggleDrawer()
                       }}/>
             </HeaderButtons>,
+        headerRight :  <View style={{flexDirection:"row"}}>
+
+
+            <HeaderButtons HeaderButtonComponent={HeaderButton1}>
+                <Item title="DeleteAll" iconName="trash-alt"
+                      onPress={
+                          ()=>{
+                              navData.navigation.navigate("Cart");
+                          }
+                      }
+                      style={{marginTop:4}}
+                />
+            </HeaderButtons>
+
+
+        </View>
     }
 }
 

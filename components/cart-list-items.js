@@ -1,6 +1,7 @@
 import React from 'react'
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native'
-import {Button, Icon} from 'react-native-elements'
+import {Button, Icon} from 'react-native-elements';
+import {Ionicons} from '@expo/vector-icons';
 import {heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-native-responsive-screen'
 import Colors from '../constants/colors'
 import {white} from "react-native-paper/src/styles/colors";
@@ -14,44 +15,53 @@ const CartListItem = (props) => {
                                     props.navigation.navigate('DeliveryDetails')
                                 }}>
             <View style={styles.dateView}>
-               <Image source={{ uri:props.itemData.item.image}} style={styles.fitImage} />
+               <Image source={{ uri:props.itemData.item.image}} style={{width:80, height:80}} />
+                {/*<Image source={{uri : itemData.item.image }} style={{width:130, height:72}} />*/}
             </View>
             <View>
-                <Text style={styles.orderNo}>
-                    {props.itemData.item.name}
-                </Text>
-                <Text style={styles.subNameStyle}>
-                    {props.itemData.item.subName}
+                <View style={{flexDirection:"row"}}>
+                    <Text style={styles.orderNo}>
+                        {props.itemData.item.name}
+                        {" "}
+                        -
+                        {" "}
+                    </Text>
+                    <Text style={styles.subNameStyle}>
+                        {props.itemData.item.subName}
+                    </Text>
+                </View>
+
+                <Text style={styles.amount}>
+                    Unit Price
+                    {' '}
+                    -
+                    {' '}
+                    Rs. {props.itemData.item.price}
                 </Text>
                 <View style={{flexDirection:"row"}}>
-                    <Text style={styles.amount}>
-                        {props.itemData.item.price}
-                        {'   '}
-                        *
-                        {' '}
-                    </Text>
-                    <TouchableOpacity>
-                        <Icon name='plus'
-                              type='feather'
-                              style={ {size:500} }
+
+                    <TouchableOpacity style={{marginTop:4, marginRight:18, marginLeft:4}}>
+                        <Ionicons name='md-remove'
+                              size={20}
                         />
-                    </TouchableOpacity>
+                    </TouchableOpacity >
                     <Text style={styles.amount}>
                         {props.itemData.item.amount}
                     </Text>
-                    <TouchableOpacity>
-                        <Icon name='minus'
-                              type='feather'
+                    <TouchableOpacity style={{marginTop:4, marginLeft:18, marginRight:4}}>
+                        <Ionicons name='md-add'
+                                  size={20}
+
                         />
                     </TouchableOpacity>
 
-                    <Text style={styles.amount}>
-                        =
-                        {' '}
-                        Rs.
-                        {props.itemData.item.totalPrice}
-                    </Text>
+
                 </View>
+                <Text style={styles.amount}>
+
+                    Rs.
+                    {props.itemData.item.totalPrice}
+                </Text>
             </View>
         </TouchableOpacity>
         </View>
@@ -62,15 +72,18 @@ const CartListItem = (props) => {
                 }}
             />
         <View style={styles.mainItem2}>
-            <TouchableOpacity style={{flexDirection:"row", justifyContent:"space-between", marginLeft:50, marginRight:70}}>
-                        <Icon name='trash-2'
-                              type='feather'
-                              style={{marginBottom:-50}}
-                        />
+            <TouchableOpacity style={{flexDirection:"row", justifyContent:"center", marginLeft:50, marginRight:70}}>
+                        <View>
+                            <Icon name='trash-2'
+                                  type='feather'
+                                // style={{marginBottom:-50}}
+                            />
+                        </View>
+
                         <Button title="Remove"
                                 titleStyle={styles.statusTitle}
                                 buttonStyle={styles.statusButton}
-                                containerStyle={styles.statusContainer}/>
+                                containerStyle={styles.statusContainers}/>
             </TouchableOpacity>
         </View>
 
@@ -81,7 +94,8 @@ const CartListItem = (props) => {
 
 const styles = StyleSheet.create({
     amount: {
-        fontSize: 15,
+        fontSize: 20,
+        marginBottom:5
         // marginBottom: 10
     },
     date: {
@@ -92,7 +106,7 @@ const styles = StyleSheet.create({
         width: '28%'
     },
     mainOne:{
-        padding: 15,
+        // padding: 10,
         elevation: 5,
         borderRadius: 10,
         backgroundColor: Colors.secondaryColor,
@@ -101,36 +115,41 @@ const styles = StyleSheet.create({
         flexWrap: 'wrap',
     },
     mainItem1 :{
+        // padding:1,
         flex: 10,
         flexDirection: 'row',
         flexWrap: 'wrap',
         alignItems: 'flex-start'
     },
     mainItem2 :{
-        padding: 15,
+        padding: 10,
         flex: 1,
         flexWrap: 'wrap',
     },
     item: {
-        padding: 15,
+        padding: 5,
         borderRadius: 10,
         flex: 1,
         flexDirection: 'row',
     },
     orderNo: {
-        fontSize: 26,
-        marginBottom: 10
+        fontSize: 25,
+        marginBottom: 4
     },
     subNameStyle:{
-        fontSize:20,
-        marginBottom: 10
+        fontSize:18,
+        marginBottom: 2,
+        marginTop: 5
     },
     statusButton: {
         backgroundColor: white,
         marginTop: -10
     },
-    statusContainer: {
-        alignSelf: 'flex-start'
+    statusContainers: {
+        alignSelf: 'flex-start',
+        marginLeft:30,
+        marginRight:10
+
     },
     statusTitle: {
         fontSize: 26,
@@ -140,6 +159,9 @@ const styles = StyleSheet.create({
     image: {
         color: Colors.primaryColor,
         fontSize: 30
+    },
+    deleteBtn:{
+      fontSize:50
     }
 })
 

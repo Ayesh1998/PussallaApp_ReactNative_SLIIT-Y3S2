@@ -5,7 +5,7 @@ import HeaderButton from '../components/header-button'
 import {widthPercentageToDP as wp} from "react-native-responsive-screen";
 import { Icon } from 'react-native-elements'
 
-const PaymentCardScreen = (navigation) => {
+const PaymentCardScreen = ({navigation}) => {
     return (
         <View style={styles.container}>
             <View style={styles.tabsStyle1}>
@@ -85,7 +85,7 @@ const PaymentCardScreen = (navigation) => {
                     alignItems: "center",
                 }}
                 onPress={() => {
-                    navData.navigate("Cart");
+                    navigation.navigate('Cart')
                 }}
             >
                 <Text style={{ color: "#fff", fontSize: 18 }}>CONTINUE</Text>
