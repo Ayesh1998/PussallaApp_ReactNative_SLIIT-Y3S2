@@ -390,7 +390,7 @@ CategoriesProductsScreen.navigationOptions = ({ navigation }) => {
    
      
     <View>
-    <Badge value={2} status="primary" 
+    <Badge value={3} status="primary" 
     containerStyle={{ position: 'absolute',  right: 4 , zIndex:999}}
      />
     <HeaderButtons HeaderButtonComponent={HeaderButton1}>
