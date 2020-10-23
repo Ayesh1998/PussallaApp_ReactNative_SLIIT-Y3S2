@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import {useSelector} from 'react-redux'
 import {FlatList, StyleSheet, View} from 'react-native'
 import {HeaderButtons, Item} from 'react-navigation-header-buttons'
@@ -10,12 +10,23 @@ import OrderListItem from '../components/order-list-item'
 const OrdersScreen = ({navigation}) => {
   let orders = useSelector((state) => state.orders.orders)
 
+  const [refresh, setRefresh] = useState(false)
+
   const renderItemsFunction = (itemData) => {
     return (
       <OrderListItem navigation={navigation}
-                     itemData={itemData}/>
+                     itemData={itemData}
+                     refreshFunction={refreshFunction}/>
     )
   }
+
+  const refreshFunction = () => {
+    setRefresh(true)
+  }
+
+  useEffect(() => {
+    setRefresh(false)
+  }, [refresh]);
 
   return (
     <View style={styles.list}>
