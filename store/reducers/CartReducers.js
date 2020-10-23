@@ -89,6 +89,15 @@ export default (state=initialState, action)=>{
             ) ,
             }
     }
+    else if(action.type=="CART_FALSE"){
+        return {
+            ...state,
+            products: state.products.map(item => item.id === action.item ?
+                { ...item, cart: false } : 
+                item
+            ) ,
+            }
+    }
     else if(action.type=="ADD_TO_WISH_LIST"){
        
         for(let i = 0; i < state.wishListItems.length; i++){
