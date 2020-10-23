@@ -25,11 +25,11 @@ const CategoriesProductsScreen =(props) => {
   const dispatch = useDispatch();
   const category = props.navigation.getParam("title");
   const product = props.navigation.getParam("count");
-  const [cart,setCart] = useState(false);
+  //const [cart,setCart] = useState(false);
 
   const filteredProducts = useSelector((state) => state.products.products.filter((product)=>product.category === category));
   //const count = useSelector((state) => state.itemsCount.itemsCount);
-  
+ console.log(filteredProducts);
 
   //  props.navigation.setParams({
   //         count:2,
@@ -108,13 +108,28 @@ useEffect(()=>{
     // });
   }
 
+  // const addCartHandler = (book)=>{
+  //  book.cart = true;
+  //  let qty = 1;
+  //  book.quantity = qty;
+  //   //console.log(this.state.count);
+  //     // getItemsCount();
+  //   // this.props.itemsCount.itemsCount
+  //   props.addToCart(book);
+  //   console.log(book)
+ 
+  // }
+
   const addCartHandler = (book)=>{
-   setCart(true);
-   let qty = 1;
-   book.quantity = qty;
+    book.cart = true;
+    //getItemsCount();
     //console.log(this.state.count);
+    let qty = 1;
+     book.quantity = qty;
     props.addToCart(book);
-    getItemsCount();
+    props.cartTrue(book.id);
+   console.log(book);
+   //props.navigation.goBack();
     // this.props.itemsCount.itemsCount
   }
 
@@ -128,15 +143,18 @@ useEffect(()=>{
                      Price : book.item.Price,
                      category : book.item.category,
                      amount : book.item.amount,
-                     unit: book.item.unit
+                     unit: book.item.unit,
+                     cart:book.item.cart,
+                     quantity:book.item.quantity
                      }
+                    
 
                      let htitle = book.item.title;
     return (
         <TouchableOpacity onPress={
             ()=>{
                 props.navigation.navigate("ProductDetails", 
-                {newBook , cart} );
+                {newBook , cart:book.item.cart} );
             }
         }>
         <View style={styles.productMain}>
@@ -159,7 +177,7 @@ useEffect(()=>{
             
             />*/}
              <View style={{flexDirection:"row"}}>
-               {cart ?<TouchableOpacity style={{ 
+               {book.item.cart ?<TouchableOpacity style={{ 
                 flexDirection:"row",
                 padding:10 ,
                 width:160, 
@@ -169,7 +187,7 @@ useEffect(()=>{
                 borderWidth:1,
                 }} 
                 onPress={()=>{
-                  console.log("add to cart click kala")
+                  console.log("added to cart click kala")
                 }}
 
                 disabled={true}
@@ -187,7 +205,9 @@ useEffect(()=>{
                 borderWidth:1,
                 }} 
                 onPress={()=>{
-                  console.log("added to cart click kala")
+                  addCartHandler(book.item)
+                  console.log("add to cart click kala")
+                  
                 }}
                 >
               <FontAwesome5 name="shopping-cart" size={25} color="white" style={{marginRight:10 ,marginLeft:2 }}/>
@@ -299,6 +319,13 @@ const mapDispatchToProps = (dispatch)=>{
           type : "ADD_TO_WISH_LIST",
           item : itemData
         });
+      },
+
+      cartTrue : (itemData)=>{
+        dispatch({
+          type : "CART_TRUE",
+          item : itemData
+        });
       }
     }
 }
@@ -375,7 +402,7 @@ CategoriesProductsScreen.navigationOptions = ({ navigation }) => {
 };
 
 
-export default connect(mapDispatchToProps)(CategoriesProductsScreen);
+export default connect(null,mapDispatchToProps)(CategoriesProductsScreen);
 
 
 

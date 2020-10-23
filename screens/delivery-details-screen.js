@@ -6,7 +6,7 @@ import {widthPercentageToDP as wp} from "react-native-responsive-screen";
 // import * as navigation from "react-navigation";
 // import Picker from "react-native-web";
 
-const DeliveryDetailsScreen = (navigation) => {
+const DeliveryDetailsScreen = ({navigation}) => {
     return (
         <View>
             <View style={styles.container}>

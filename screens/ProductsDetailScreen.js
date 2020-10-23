@@ -22,14 +22,26 @@ import {
 
 
 const ProductsDetailScreen =(props) =>{
+  const dispatch = useDispatch();
     
  //const [count,setCount] = useState(-12);
-    const [cart,setCart] = useState(false);
+    //const [cart,setCart] = useState(false);
     const count = useSelector((state) => state.itemsCount.itemsCount);
+    const cartProducts = useSelector((state) => state.cartItems.cartItems);
     console.log(count)
-    const[quantity, setQuantity] = useState(1);
+    console.log("cart items me")
+   console.log(cartProducts)
+   console.log("cart items me1111111111111111111111")
+  
+    //const[quantity, setQuantity] = useState(1);
+   
     
-    let pCart =props.navigation.getParam("cart");
+   let pCart =props.navigation.getParam("cart");
+   console.log(pCart)
+
+    let book =props.navigation.getParam("newBook");
+    console.log(book.quantity)
+    console.log("222222222222222222221111111111111111111111")
 
     
 
@@ -61,17 +73,7 @@ const ProductsDetailScreen =(props) =>{
 })
 
 const getItemsCount = ()=>{
-//   this.setState({
-//     count : this.state.count+1
-//   },
-//   ()=>{
-//     let count = props.itemsCount.itemsCount;
-//   console.log(count);
-//   props.navigation.setParams({
-//     count : count,
-//   });
-//   }
-//   );
+
 
 // setCount({
     //   count : count+1
@@ -84,13 +86,15 @@ const getItemsCount = ()=>{
     // });
 }
 const addCartHandler = (book)=>{
-  setCart(true);
-  getItemsCount();
+  book.cart = true;
+  //getItemsCount();
   //console.log(this.state.count);
   let qty = 1;
    book.quantity = qty;
   props.addToCart(book);
- // console.log(book);
+  props.cartTrue(book.id);
+//  console.log(book);
+//  console.log(book.quantity);
  //props.navigation.goBack();
   // this.props.itemsCount.itemsCount
 }
@@ -102,9 +106,14 @@ const addedCartHandler = ()=>{
 
 const decreaseQuantity = (id)=>{
   console.log("decrease");
-  if(quantity > 1){
-    setQuantity(quantity - 1)
-  }
+  // if(quantity > 1){
+  //   setQuantity(quantity - 1)
+  // } 
+
+  if(book.quantity > 1){
+      book.quantity = book.quantity - 1;
+    } 
+  props.decreaseQuantity(id);
   
  
 }
@@ -112,7 +121,10 @@ const decreaseQuantity = (id)=>{
 const increaseQuantity = (id)=>{
   console.log("increase");
   
-  setQuantity(quantity + 1)
+  // setQuantity(quantity + 1)
+  book.quantity = book.quantity + 1;
+
+  props.increaseQuantity(id);
  
 }
 
@@ -123,8 +135,11 @@ const increaseQuantity = (id)=>{
 
 
         
-          let book =props.navigation.getParam("newBook");
+         
           //book.quantity = 2;
+          console.log(book)
+
+          console.log(book.cart)
 
           
           return (
@@ -159,7 +174,7 @@ const increaseQuantity = (id)=>{
                    <View style={{height:50}}></View>
                    
                    <View style={{flexDirection:"row" , marginLeft:20,marginRight:20}}>
-                   {(cart || pCart) ? 
+                   {(book.cart) ? 
                 <TouchableOpacity style={{ 
                 flexDirection:"row", 
                 padding:10 ,
@@ -191,6 +206,7 @@ const increaseQuantity = (id)=>{
                 }}
                 onPress={()=>{
                   addCartHandler(book);
+                 
                 }}
                 >
                   <FontAwesome5 name="shopping-cart" size={33} color="white" style={{marginRight:15 ,marginLeft:5 }}/>
@@ -200,7 +216,7 @@ const increaseQuantity = (id)=>{
               </TouchableOpacity>}
 
               <View style={{flexDirection:"row",marginVertical:5,marginLeft:18}}>
-            {quantity > 1 ? 
+            {book.quantity > 1 ? 
             <TouchableOpacity onPress={
               ()=>{
                 decreaseQuantity(book.id);
@@ -221,7 +237,7 @@ const increaseQuantity = (id)=>{
            
             
               <Text style={{fontSize:30, }}>
-                {quantity}
+                {book.quantity}
               </Text>
               <TouchableOpacity onPress={
                 ()=>{
@@ -316,12 +332,12 @@ fitImage: {
   }
   });
   
-const mapStateToProps = (state)=>{
-  return {
-    products : state.products,
-    itemsCount : state.itemsCount,
-  }
-}
+// const mapStateToProps = (state)=>{
+//   return {
+//     products : state.products,
+//     itemsCount : state.itemsCount,
+//   }
+// }
 const mapDispatchToProps = (dispatch)=>{
   return {
     addToCart : (itemData)=>{
@@ -340,6 +356,13 @@ const mapDispatchToProps = (dispatch)=>{
     increaseQuantity : (itemData)=>{
       dispatch({
         type : "INCREASE_QUANTITY",
+        item : itemData
+      });
+    },
+
+    cartTrue : (itemData)=>{
+      dispatch({
+        type : "CART_TRUE",
         item : itemData
       });
     }
@@ -396,4 +419,4 @@ ProductsDetailScreen.navigationOptions = ({ navigation }) => {
     };
   };
 
-export default connect(mapStateToProps,mapDispatchToProps)(ProductsDetailScreen);
+export default connect(null,mapDispatchToProps)(ProductsDetailScreen);

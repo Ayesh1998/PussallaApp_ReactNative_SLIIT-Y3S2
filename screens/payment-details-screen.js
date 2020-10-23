@@ -5,7 +5,7 @@ import HeaderButton from '../components/header-button'
 import {widthPercentageToDP as wp} from "react-native-responsive-screen";
 import { Icon } from 'react-native-elements'
 
-const PaymentScreen = (navigation) => {
+const PaymentScreen = ({navigation}) => {
     return (
         <View style={styles.container}>
             <View style={styles.tabsStyle1}>
@@ -18,12 +18,13 @@ const PaymentScreen = (navigation) => {
                     }}
                 />
                 <View style={styles.methodeStyle}>
-                    <TouchableOpacity>
+                    <TouchableOpacity >
                         <View style={{flexDirection: 'row',
                             justifyContent: 'space-between'}}>
                             <Text style={{ fontSize: 18, marginRight: 5 }}>Cash on Delivery</Text>
                             <Icon name='check-circle'
                                   type='Octicons'
+
                             />
                         </View>
                     </TouchableOpacity>
