@@ -14,9 +14,9 @@ import CartScreen from '../screens/cart-screen'
 import CategoriesProductsScreen from '../screens/CategoriesProductsScreen'
 import ProductsDetailScreen from '../screens/ProductsDetailScreen'
 import HomeScreen from '../screens/home-screen'
-import DeliveryDetailsScreen from "../screens/delivery-details-screen";
-import PaymentScreen from "../screens/payment-details-screen";
-import PaymentCardScreen from "../screens/payment-details-screen2";
+import DeliveryDetailsScreen from '../screens/delivery-details-screen'
+import PaymentScreen from '../screens/payment-details-screen'
+import PaymentCardScreen from '../screens/payment-details-screen2'
 import WishListScreen from '../screens/WishListScreen'
 
 const HomeNavigator = createStackNavigator(
@@ -137,35 +137,35 @@ const WishListNavigator = createStackNavigator(
   }
 )
 
-const PaymentNavigator = createStackNavigator(
-  {
-    Cart: PaymentScreen
-  },
-  {
-    defaultNavigationOptions: {
-      headerTitleAlign: 'center',
-      headerStyle: {
-        backgroundColor: Colors.primaryColor
-      },
-      headerTintColor: Colors.secondaryColor
-    }
-  }
-)
-
-const PaymentCardNavigator = createStackNavigator(
-  {
-    Cart: PaymentCardScreen
-  },
-  {
-    defaultNavigationOptions: {
-      headerTitleAlign: 'center',
-      headerStyle: {
-        backgroundColor: Colors.primaryColor
-      },
-      headerTintColor: Colors.secondaryColor
-    }
-  }
-)
+// const PaymentNavigator = createStackNavigator(
+//   {
+//     Cart: PaymentScreen
+//   },
+//   {
+//     defaultNavigationOptions: {
+//       headerTitleAlign: 'center',
+//       headerStyle: {
+//         backgroundColor: Colors.primaryColor
+//       },
+//       headerTintColor: Colors.secondaryColor
+//     }
+//   }
+// )
+//
+// const PaymentCardNavigator = createStackNavigator(
+//   {
+//     Cart: PaymentCardScreen
+//   },
+//   {
+//     defaultNavigationOptions: {
+//       headerTitleAlign: 'center',
+//       headerStyle: {
+//         backgroundColor: Colors.primaryColor
+//       },
+//       headerTintColor: Colors.secondaryColor
+//     }
+//   }
+// )
 
 const ShopNavigator = createDrawerNavigator(
   {
@@ -185,22 +185,6 @@ const ShopNavigator = createDrawerNavigator(
                               size={25}/>
       }
     },
-    Cart: {
-      screen: CartNavigator,
-      navigationOptions: {
-        drawerLabel: 'Cart',
-        drawerIcon: <Ionicons name='md-cart'
-                              size={25}/>
-      }
-    },
-    WishList: {
-      screen: WishListNavigator,
-      navigationOptions: {
-        drawerLabel: 'WishList',
-        drawerIcon: <Ionicons name='md-heart'
-                              size={25}/>
-      }
-    },
     Orders: {
       screen: OrdersNavigator,
       navigationOptions: {
@@ -217,22 +201,38 @@ const ShopNavigator = createDrawerNavigator(
                               size={25}/>
       }
     },
-    Payment: {
-      screen: PaymentNavigator,
+    Cart: {
+      screen: CartNavigator,
       navigationOptions: {
-        drawerLabel: 'Payment Details',
-        drawerIcon: <Ionicons name='md-albums'
+        drawerLabel: 'Cart',
+        drawerIcon: <Ionicons name='md-cart'
                               size={25}/>
       }
     },
-    PaymentCard: {
-      screen: PaymentCardNavigator,
+    WishList: {
+      screen: WishListNavigator,
       navigationOptions: {
-        drawerLabel: 'Payment Details Card',
-        drawerIcon: <Ionicons name='md-albums'
+        drawerLabel: 'WishList',
+        drawerIcon: <Ionicons name='md-heart'
                               size={25}/>
       }
     },
+    // Payment: {
+    //   screen: PaymentNavigator,
+    //   navigationOptions: {
+    //     drawerLabel: 'Payment Details',
+    //     drawerIcon: <Ionicons name='md-albums'
+    //                           size={25}/>
+    //   }
+    // },
+    // PaymentCard: {
+    //   screen: PaymentCardNavigator,
+    //   navigationOptions: {
+    //     drawerLabel: 'Payment Details Card',
+    //     drawerIcon: <Ionicons name='md-albums'
+    //                           size={25}/>
+    //   }
+    // },
     Logout: {
       screen: FeedbackNavigator,
       navigationOptions: {
