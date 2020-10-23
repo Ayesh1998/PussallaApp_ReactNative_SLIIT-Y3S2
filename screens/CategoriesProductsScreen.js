@@ -2,7 +2,7 @@ import React, { useEffect, useState  } from 'react'
 import {
     StyleSheet,
     View,
-    Text,
+    Text, 
    TextInput,
    TouchableOpacity,
    FlatList,
@@ -77,14 +77,14 @@ useEffect(()=>{
    
  })
   
-  const addToWishListHandler = (book)=>{
-    props.addToWishList(book);
-    getItemsCount();
-    }
-    const addedCartHandler = ()=>{
-      console.log("clicked added to cart")
+  // const addToWishListHandler = (book)=>{
+  //   props.addToWishList(book);
+  //   getItemsCount();
+  //   }
+  //   const addedCartHandler = ()=>{
+  //     console.log("clicked added to cart")
      
-    }
+  //   }
   const getItemsCount = ()=>{
     // this.setState({
     //   count : this.state.count+1
@@ -132,6 +132,14 @@ useEffect(()=>{
    //props.navigation.goBack();
     // this.props.itemsCount.itemsCount
   }
+
+ const  addToWishListHandler = (book)=>{
+    props.addToWishList(book);
+    console.log("whish list eke product eka")
+    console.log(book)
+    // this.getItemsCount();
+    }
+
 
  const loadBooks = (book)=>{
                    let newBook = {
@@ -214,6 +222,7 @@ useEffect(()=>{
              <Text style={{color:"white", fontWeight:"bold",fontSize:18,marginRight:5}}>Add to Cart</Text>
               </TouchableOpacity>  }
               <TouchableOpacity onPress={()=>{
+                addToWishListHandler(book.item)
                    console.log("wishlist click kala")
                 }}>
                   <FontAwesome name="heart" size={33} color="#FF543C" style={{marginLeft:10}}/>
@@ -372,7 +381,7 @@ CategoriesProductsScreen.navigationOptions = ({ navigation }) => {
      <Item title="Favourtie" iconName="heart" 
      onPress={
       ()=>{
-       navigation.navigate("Cart");
+       navigation.navigate("WishList");
       } 
      }
       style={{marginTop:4}}
@@ -381,14 +390,14 @@ CategoriesProductsScreen.navigationOptions = ({ navigation }) => {
    
      
     <View>
-    <Badge value={2} status="primary" 
+    <Badge value={3} status="primary" 
     containerStyle={{ position: 'absolute',  right: 4 , zIndex:999}}
      />
     <HeaderButtons HeaderButtonComponent={HeaderButton1}>
      <Item title="Favourtie" iconName="shopping-cart" 
      onPress={
       ()=>{
-       navigation.navigate("Cart");
+       navigation.navigate("WishList");
       } 
      }
       style={{marginTop:4}}
