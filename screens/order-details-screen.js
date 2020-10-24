@@ -26,6 +26,7 @@ const OrderDetailsScreen = (props) => {
 
   const handleCancelOrder = async () => {
     await dispatch(cancelOrder(order.order.orderNo))
+    order.refresh()
     await hideDialog()
     Toast.show('Order cancelled.', Toast.SHORT)
   }

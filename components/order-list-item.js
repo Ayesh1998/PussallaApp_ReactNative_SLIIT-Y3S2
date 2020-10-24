@@ -7,7 +7,8 @@ import Colors from '../constants/colors'
 const OrderListItem = (props) => {
   let order = {
     order: props.itemData.item,
-    navigation: props.navigation
+    navigation: props.navigation,
+    refresh: props.refreshFunction
   }
 
   return (
