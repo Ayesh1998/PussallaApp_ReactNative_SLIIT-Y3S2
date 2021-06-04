@@ -5,7 +5,6 @@ import * as Font from 'expo-font'
 import {AppLoading} from 'expo'
 import MealsNavigator from './navigation/meals-navigator'
 import ShopReducer from './store/reducers/meals-reducer'
-import ProductsReducers from './store/reducers/ProductsReducers'
 import CartReducers from './store/reducers/CartReducers'
 import OrderReducers from './store/reducers/orders-reducer'
 
@@ -20,8 +19,7 @@ const getFonts = () => {
 
 const mainReducer = combineReducers({
   shop: ShopReducer,
- // products: ProductsReducers,
-  products:  CartReducers, 
+  products: CartReducers,
   cartItems: CartReducers,
   itemsCount: CartReducers,
   wishListItems: CartReducers,

@@ -1,26 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, {useState} from "react";
 import {
-  View,
-  Text,
-  StyleSheet,
-  FlatList,
-  TouchableOpacity,
   Animated,
-  ScrollView,
-  Image,
   Dimensions,
-  Button,
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
   TextInput,
+  TouchableOpacity,
+  View,
 } from "react-native";
-import {
-  widthPercentageToDP as wp,
-  heightPercentageToDP as hp,
-} from "react-native-responsive-screen";
-import { Ionicons } from "@expo/vector-icons";
+import {heightPercentageToDP as hp, widthPercentageToDP as wp,} from "react-native-responsive-screen";
 
-const { width } = Dimensions.get("window");
+const {width} = Dimensions.get("window");
 
-const AuthScreen = ({ navigation }) => {
+const AuthScreen = ({navigation}) => {
   const [active, setActive] = useState(1);
   const [xTabOne, setXTabOne] = useState(0);
   const [xTabTwo, setXTabTwo] = useState(0);
@@ -67,7 +61,7 @@ const AuthScreen = ({ navigation }) => {
   };
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{flex: 1}}>
       <View
         style={{
           width: "100%",
@@ -222,7 +216,7 @@ const AuthScreen = ({ navigation }) => {
                     navigation.navigate("Shop");
                   }}
                 >
-                  <Text style={{ color: "#fff", fontSize: 18 }}>Login</Text>
+                  <Text style={{color: "#fff", fontSize: 18}}>Login</Text>
                 </TouchableOpacity>
               </View>
               <View
@@ -267,7 +261,7 @@ const AuthScreen = ({ navigation }) => {
               </View> */}
             </View>
 
-            <View style={{ marginTop: 20 }}></View>
+            <View style={{marginTop: 20}}></View>
           </Animated.View>
 
           <Animated.View
@@ -332,7 +326,7 @@ const AuthScreen = ({ navigation }) => {
                     navigation.navigate("Shop");
                   }}
                 >
-                  <Text style={{ color: "#fff", fontSize: 18 }}>SignUp</Text>
+                  <Text style={{color: "#fff", fontSize: 18}}>SignUp</Text>
                 </TouchableOpacity>
               </View>
               <View
@@ -368,7 +362,7 @@ const AuthScreen = ({ navigation }) => {
               </View>
             </View>
 
-            <View style={{ marginTop: 20 }}></View>
+            <View style={{marginTop: 20}}></View>
           </Animated.View>
         </ScrollView>
       </View>

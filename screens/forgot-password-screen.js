@@ -1,21 +1,11 @@
 import React from "react";
-import {
-  Image,
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from "react-native";
-import {
-  widthPercentageToDP as wp,
-  heightPercentageToDP as hp,
-} from "react-native-responsive-screen";
-import { Ionicons } from "@expo/vector-icons";
+import {Image, StyleSheet, Text, TextInput, TouchableOpacity, View,} from "react-native";
+import {heightPercentageToDP as hp, widthPercentageToDP as wp,} from "react-native-responsive-screen";
+import {Ionicons} from "@expo/vector-icons";
 
-const ForgotPasswordScreen = ({ navigation }) => {
+const ForgotPasswordScreen = ({navigation}) => {
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{flex: 1}}>
       <View
         style={{
           width: "100%",
@@ -35,7 +25,7 @@ const ForgotPasswordScreen = ({ navigation }) => {
             navigation.goBack();
           }}
         >
-          <Ionicons name="md-arrow-round-back" size={30} color="#f07800" />
+          <Ionicons name="md-arrow-round-back" size={30} color="#f07800"/>
         </TouchableOpacity>
       </View>
 
@@ -95,7 +85,7 @@ const ForgotPasswordScreen = ({ navigation }) => {
             navigation.goBack();
           }}
         >
-          <Text style={{ color: "#fff", fontSize: 18 }}>RESET</Text>
+          <Text style={{color: "#fff", fontSize: 18}}>RESET</Text>
         </TouchableOpacity>
         <View
           style={{
